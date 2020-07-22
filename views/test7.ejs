@@ -1,0 +1,795 @@
+<%- include("partials/header") -%>
+  <script>
+    $(document).ready(function() {
+      $("footer").css("margin-top", "5%");
+      $(".results").hide();
+      for (let i = 0; i < 6; i++)
+        $(".Type" + String.fromCharCode(i + 65)).hide();
+      $(".btn").click(function() {
+        $("footer").css("margin-top", "50%");
+        $(".questions").hide();
+        var Openness = 0,
+          Conscientiousness = 0,
+          Extraversion = 0,
+          Agreeableness = 0,
+          Neuroticism = 0;
+        var arr = [];
+        var O = [1, 7, -9, 12, 21, -27, 30, 39, -46];
+        var C = [2, 11, 16, -18, -20, 32, -34, 37, 44, -47];
+        var E = [5, 6, -8, -10, -13, 22, 24, 25, -43, -48];
+        var A = [14, -17, -26, -28, 31, 33, 35, 36, -38, 41];
+        var N = [3, 4, 15, 19, 23, 29, 41, 42, -48, -49];
+        $("select").each(function(i) {
+          arr.push($(this).children("option:selected").val());
+        });
+        for (let i = 0; i < O.length; i++) {
+          if (O[i] > 0)
+            Openness += parseInt(arr[O[i] - 1]);
+          else
+            Openness += 6 - parseInt(arr[Math.abs(O[i]) - 1]);
+        }
+        for (let i = 0; i < C.length; i++) {
+          if (C[i] > 0)
+            Conscientiousness += parseInt(arr[C[i] - 1]);
+          else
+            Conscientiousness += 6 - parseInt(arr[Math.abs(C[i]) - 1]);
+        }
+        for (let i = 0; i < E.length; i++) {
+          if (E[i] > 0)
+            Extraversion += parseInt(arr[E[i] - 1]);
+          else
+            Extraversion += 6 - parseInt(arr[Math.abs(E[i]) - 1]);
+        }
+        for (let i = 0; i < A.length; i++) {
+          if (A[i] > 0)
+            Agreeableness += parseInt(arr[A[i] - 1]);
+          else
+            Agreeableness += 6 - parseInt(arr[Math.abs(A[i]) - 1]);
+        }
+        for (let i = 0; i < N.length; i++) {
+          if (N[i] > 0)
+            Neuroticism += parseInt(arr[N[i] - 1]);
+          else
+            Neuroticism += 6 - parseInt(arr[Math.abs(N[i]) - 1]);
+        }
+        $(".O").append(Math.round(Openness / 45 * 100) + "%");
+        $(".C").append(Math.round(Conscientiousness / 50 * 100) + "%");
+        $(".E").append(Math.round(Extraversion / 50 * 100) + "%");
+        $(".A").append(Math.round(Agreeableness / 50 * 100) + "%");
+        $(".N").append(Math.round(Neuroticism / 50 * 100) + "%");
+        $(".results").show();
+
+      });
+    });
+  </script>
+</head>
+
+<body>
+  <%- include("partials/navbar") -%>
+  <div class="content">
+    <div class="questions">
+      <h3 class="phase">Bài trắc nghiệm giúp người làm dựa trên kết quả trắc nghiệm để xác định xem tính cách của mình có phù hợp cho một công việc hay ngành nghề nào đó hay không. Bạn hoàn toàn có thể dùng Big Five để kiểm tra xem trong một môi trường làm việc với những đặc điểm nhất định thì liệu tính cách của mình có thể thích nghi được hay không.
+  Link tiếng anh( 300 câu hỏi): : http://www.personal.psu.edu/~j5j/IPIP/
+  </h3>
+      <h4 class="phase">Đối với bài kiểm tra ví dụ này thì các bạn chấm theo thang điểm từ 1-5.</h4>
+      <ul>
+        <li>Tuyệt đối không chính xác – 1</li>
+        <li>Không chính xác – 2</li>
+        <li>Trung lập – 3</li>
+        <li>Đồng ý – 4</li>
+        <li>Rất đồng ý – 5</li>
+      </ul>
+      <div class="A">
+        <table class="table">
+          <thead class="thead-light">
+            <tr>
+              <th scope="col">Câu hỏi</th>
+              <th scope="col">Điểm</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1. Lượng từ vựng của tôi rất nhiều.</td>
+              <td>
+                <div class="form-group">
+                  <select class="form-control" id="sel1">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>2. Tôi thích ngăn nắp.</td>
+              <td>
+                <div class="form-group">
+                  <select class="form-control" id="sel1">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>3. Tôi rất dễ buồn.</td>
+              <td>
+                <div class="form-group">
+                  <select class="form-control" id="sel1">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>4. Cảm xúc tôi thay đổi thường xuyên.</td>
+              <td>
+                <div class="form-group">
+                  <select class="form-control" id="sel1">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>5. Tôi là sức sống của bữa tiệc.</td>
+              <td>
+                <div class="form-group">
+                  <select class="form-control" id="sel1">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>6. Tôi cảm thấy thoải mái khi ở gần mọi người.</td>
+              <td>
+                <div class="form-group">
+                  <select class="form-control" id="sel1">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>7. Tôi tràn đầy những ý tưởng.</td>
+              <td>
+                <div class="form-group">
+                  <select class="form-control" id="sel1">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>8. Tôi không thích nói nhiều (R).</td>
+              <td>
+                <div class="form-group">
+                  <select class="form-control" id="sel1">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>9. Tôi không có trí tưởng tượng tốt (R)</td>
+              <td>
+                <div class="form-group">
+                  <select class="form-control" id="sel1">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>10. Tôi không có ý định nói chuyện khi ở trong một đám đông (R).</td>
+              <td>
+                <div class="form-group">
+                  <select class="form-control" id="sel1">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>11. Tôi lúc nào cũng chuẩn bị trước.</td>
+              <td>
+                <div class="form-group">
+                  <select class="form-control" id="sel1">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>12. Tôi có trí tưởng tượng sinh động</td>
+              <td>
+                <div class="form-group">
+                  <select class="form-control" id="sel1">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>13. Tôi nghĩ rất nhiều trước khi nói (R).</td>
+              <td>
+                <div class="form-group">
+                  <select class="form-control" id="sel1">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>14. Tôi dành thời gian cho những người khác.</td>
+              <td>
+                <div class="form-group">
+                  <select class="form-control" id="sel1">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>15. Tôi lo đủ chuyện.</td>
+              <td>
+                <div class="form-group">
+                  <select class="form-control" id="sel1">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>16. Tôi phấn khích với công việc của mình</td>
+              <td>
+                <div class="form-group">
+                  <select class="form-control" id="sel1">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>17. Tôi thật sự không có hứng với người khác (R).</td>
+              <td>
+                <div class="form-group">
+                  <select class="form-control" id="sel1">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>18. Tôi làm mọi thứ lộn xộn lên (R).</td>
+              <td>
+                <div class="form-group">
+                  <select class="form-control" id="sel1">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>19. Tôi rất dễ bị stress.</td>
+              <td>
+                <div class="form-group">
+                  <select class="form-control" id="sel1">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>20. Tôi trốn tránh trách nhiệm của mình (R).</td>
+              <td>
+                <div class="form-group">
+                  <select class="form-control" id="sel1">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>21. Tôi dùng những từ khó (những từ có dùng nhiều trong văn học hơn là văn nói)</td>
+              <td>
+                <div class="form-group">
+                  <select class="form-control" id="sel1">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>22. Tôi chẳng phiền việc mình là trung tâm của sự chú ý</td>
+              <td>
+                <div class="form-group">
+                  <select class="form-control" id="sel1">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>23. Tôi lo âu nhiều hơn những người khác.</td>
+              <td>
+                <div class="form-group">
+                  <select class="form-control" id="sel1">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>24. Tôi bắt đầu cuộc nói chuyện trước.</td>
+              <td>
+                <div class="form-group">
+                  <select class="form-control" id="sel1">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>25. Tôi nói chuyện với rất nhiều người khác nhau ở các buổi tiệc.</td>
+              <td>
+                <div class="form-group">
+                  <select class="form-control" id="sel1">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>26. Tôi lăng mạ người khác (R).</td>
+              <td>
+                <div class="form-group">
+                  <select class="form-control" id="sel1">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>27. Tôi gặp khó khăn trong việc hiểu được những ý tưởng trừu tượng (R).</td>
+              <td>
+                <div class="form-group">
+                  <select class="form-control" id="sel1">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>28. Tôi không có hứng với những vấn đề của người khác (R).</td>
+              <td>
+                <div class="form-group">
+                  <select class="form-control" id="sel1">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>29. Tôi rất dễ bị phân tâm.</td>
+              <td>
+                <div class="form-group">
+                  <select class="form-control" id="sel1">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>30. Tôi có những ý tưởng tuyệt vời.</td>
+              <td>
+                <div class="form-group">
+                  <select class="form-control" id="sel1">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>31. Tôi rất có hứng thú với mọi người.</td>
+              <td>
+                <div class="form-group">
+                  <select class="form-control" id="sel1">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>32. Tôi chú ý đến từng chi tiết nhỏ.</td>
+              <td>
+                <div class="form-group">
+                  <select class="form-control" id="sel1">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>33. Tôi có trái tim mềm mỏng.</td>
+              <td>
+                <div class="form-group">
+                  <select class="form-control" id="sel1">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>34. Tôi thường quên đặt mọi thứ về chỗ cũ (R).</td>
+              <td>
+                <div class="form-group">
+                  <select class="form-control" id="sel1">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>35. Tôi cảm nhận cảm xúc của người khác.</td>
+              <td>
+                <div class="form-group">
+                  <select class="form-control" id="sel1">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>36. Tôi khiến người khác cảm thấy thoải mái.</td>
+              <td>
+                <div class="form-group">
+                  <select class="form-control" id="sel1">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>37. Tôi luôn hoàn thành những công việc vặt trong nhà ngay lập tức.</td>
+              <td>
+                <div class="form-group">
+                  <select class="form-control" id="sel1">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>38. Tôi rất ít quan tâm đến người khác (R).</td>
+              <td>
+                <div class="form-group">
+                  <select class="form-control" id="sel1">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>39. Tôi dễ dàng hiểu được mọi thứ.</td>
+              <td>
+                <div class="form-group">
+                  <select class="form-control" id="sel1">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>40. Tôi thông cảm với cảm xúc của người khác.</td>
+              <td>
+                <div class="form-group">
+                  <select class="form-control" id="sel1">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>41. Tâm trạng/cảm giác/khí sắc tôi thay đổi rất nhiều.</td>
+              <td>
+                <div class="form-group">
+                  <select class="form-control" id="sel1">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>42. Tôi rất dễ bực dọc.</td>
+              <td>
+                <div class="form-group">
+                  <select class="form-control" id="sel1">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>43. Tôi không thích kéo sự chú ý về mình (R).</td>
+              <td>
+                <div class="form-group">
+                  <select class="form-control" id="sel1">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>44. Tôi luôn làm theo thời gian biểu của mình.</td>
+              <td>
+                <div class="form-group">
+                  <select class="form-control" id="sel1">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>45. Tôi không thích những thứ trừu tượng (R).</td>
+              <td>
+                <div class="form-group">
+                  <select class="form-control" id="sel1">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>46. Tôi quăng đồ mình khắp nơi (R).</td>
+              <td>
+                <div class="form-group">
+                  <select class="form-control" id="sel1">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>47. Tôi rất im lặng khi ở gần người lạ (R).</td>
+              <td>
+                <div class="form-group">
+                  <select class="form-control" id="sel1">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>48. Đa phần thời gian tôi thường thoải mái (R).</td>
+              <td>
+                <div class="form-group">
+                  <select class="form-control" id="sel1">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>49. Tôi ít khi nào cảm thấy buồn (R).</td>
+              <td>
+                <div class="form-group">
+                  <select class="form-control" id="sel1">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
+                </div>
+              </td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+      <div class="text-center">
+        <button type="button" name="button" class="btn btn-lg btn-primary">Nộp bài</button>
+      </div>
+    </div>
+    <div class="results">
+      <h3 class="O">Sẵn sàng trải nghiệm: </h3>
+      <h3 class="C">Tận tâm: </h3>
+      <h3 class="E">Hướng ngoại: </h3>
+      <h3 class="A">Dễ chịu: </h3>
+      <h3 class="N">Tâm lí bất ổn: </h3>
+    </div>
+  </div>
+</body>
+<%- include("partials/footer") -%>
+</html>

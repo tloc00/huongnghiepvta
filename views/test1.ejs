@@ -1,0 +1,911 @@
+<%- include("partials/header") -%>
+  <script>
+    $(document).ready(function() {
+      $(".results").hide();
+      $("footer").css("margin-top", "5%");
+      for (let i = 0; i < 6; i++)
+        $(".Type" + String.fromCharCode(i + 65)).hide();
+      $(".btn").click(function() {
+        $("footer").css("margin-top", "50%");
+        var sumArr = [];
+        for (let i = 0; i < 6; i++) {
+          var sum = 0;
+          $("." + String.fromCharCode(i + 65) + " select").each(function(i) {
+            sum += parseInt($(this).children("option:selected").val());
+          });
+          sumArr.push(sum);
+        }
+        var max = sumArr[0];
+        var index = 0;
+        for (let i = 1; i < 6; i++)
+          if (max < sumArr[i]) {
+            max = sumArr[i];
+            index = i;
+          }
+        $(".questions").hide();
+        $(".Type" + String.fromCharCode(index + 65)).show();
+      });
+    });
+  </script>
+</head>
+
+<body>
+<%- include("partials/navbar") -%>
+  <div class="content">
+    <div class="TypeA" style="padding:3% 0">
+      <h3>Kiểu người R (Realistic - Người thực tế): </h3>
+      <strong>Tổng điểm số của bảng A là cao nhất so với các bảng khác</strong>
+      <p>Người thuộc nhóm sở thích nghề nghiệp này thường có khả năng về kỹ thuật, công nghệ, hệ thống; ưa thích làm việc với đồ vật, máy móc, động thực vật; thích làm các công việc ngoài trời.<br>Ngành nghề phù hợp với nhóm này bao gồm những nghề về
+        kiến trúc, an toàn lao động, nghề mộc, xây dựng, thủy sản, kỹ thuật, máy tàu thủy, lái xe, huấn luyện viên, nông - lâm nghiệp (quản lý trang trại, nhân giống cá, lâm nghiệp...), cơ khí (chế tạo máy, bảo trì và sửa chữa thiết bị, luyện kim, cơ
+        khí ứng dụng, tự động...), điện - điện tử, địa lý - địa chất (đo đạc, vẽ bản đồ địa chính), dầu khí, hải dương học, quản lý công nghiệp...</p>
+    </div>
+    <div class="TypeB"style="padding:3% 0">
+      <h3>Kiểu người I (Investigative - Người nghiên cứu): </h3>
+      <strong>Tổng điểm số của bảng B là cao nhất so với các bảng khác</strong>
+      <p>Có khả năng về quan sát, khám phá, phân tích đánh giá và giải quyết các vấn đề.<br>
+        Ngành nghề phù hợp với nhóm này bao gồm: Các ngành thuộc lĩnh vực khoa học tự nhiên (toán, lý, hóa, sinh, địa lý, địa chất, thống kê...); khoa học xã hội (nhân học, tâm lý, địa lý...); y - dược (bác sĩ gây mê, hồi sức, bác sĩ phẫu thuật, nha
+        sĩ...); khoa học công nghệ (công nghệ thông tin, môi trường, điện, vật lý kỹ thuật, xây dựng...); nông lâm (nông học, thú y...).</p>
+    </div>
+    <div class="TypeC"style="padding:3% 0">
+      <h3>Kiểu người I (Investigative - Người nghiên cứu): </h3>
+      <strong>Tổng điểm số của bảng C là cao nhất so với các bảng khác</strong>
+      <p>Có khả năng về quan sát, khám phá, phân tích đánh giá và giải quyết các vấn đề.<br>
+        Ngành nghề phù hợp với nhóm này bao gồm: Các ngành thuộc lĩnh vực khoa học tự nhiên (toán, lý, hóa, sinh, địa lý, địa chất, thống kê...); khoa học xã hội (nhân học, tâm lý, địa lý...); y - dược (bác sĩ gây mê, hồi sức, bác sĩ phẫu thuật, nha
+        sĩ...); khoa học công nghệ (công nghệ thông tin, môi trường, điện, vật lý kỹ thuật, xây dựng...); nông lâm (nông học, thú y...).</p>
+    </div>
+    <div class="TypeD"style="padding:3% 0">
+      <h3>Kiểu người I (Investigative - Người nghiên cứu): </h3>
+      <strong>Tổng điểm số của bảng D là cao nhất so với các bảng khác</strong>
+      <p>Có khả năng về quan sát, khám phá, phân tích đánh giá và giải quyết các vấn đề.<br>
+        Ngành nghề phù hợp với nhóm này bao gồm: Các ngành thuộc lĩnh vực khoa học tự nhiên (toán, lý, hóa, sinh, địa lý, địa chất, thống kê...); khoa học xã hội (nhân học, tâm lý, địa lý...); y - dược (bác sĩ gây mê, hồi sức, bác sĩ phẫu thuật, nha
+        sĩ...); khoa học công nghệ (công nghệ thông tin, môi trường, điện, vật lý kỹ thuật, xây dựng...); nông lâm (nông học, thú y...).</p>
+    </div>
+    <div class="TypeE"style="padding:3% 0">
+      <h3>Kiểu người I (Investigative - Người nghiên cứu): </h3>
+      <strong>Tổng điểm số của bảng E là cao nhất so với các bảng khác</strong>
+      <p>Có khả năng về quan sát, khám phá, phân tích đánh giá và giải quyết các vấn đề.<br>
+        Ngành nghề phù hợp với nhóm này bao gồm: Các ngành thuộc lĩnh vực khoa học tự nhiên (toán, lý, hóa, sinh, địa lý, địa chất, thống kê...); khoa học xã hội (nhân học, tâm lý, địa lý...); y - dược (bác sĩ gây mê, hồi sức, bác sĩ phẫu thuật, nha
+        sĩ...); khoa học công nghệ (công nghệ thông tin, môi trường, điện, vật lý kỹ thuật, xây dựng...); nông lâm (nông học, thú y...).</p>
+    </div>
+    <div class="TypeF"style="padding:3% 0">
+      <h3>Kiểu người I (Investigative - Người nghiên cứu): </h3>
+      <strong>Tổng điểm số của bảng F là cao nhất so với các bảng khác</strong>
+      <p>Có khả năng về quan sát, khám phá, phân tích đánh giá và giải quyết các vấn đề.<br>
+        Ngành nghề phù hợp với nhóm này bao gồm: Các ngành thuộc lĩnh vực khoa học tự nhiên (toán, lý, hóa, sinh, địa lý, địa chất, thống kê...); khoa học xã hội (nhân học, tâm lý, địa lý...); y - dược (bác sĩ gây mê, hồi sức, bác sĩ phẫu thuật, nha
+        sĩ...); khoa học công nghệ (công nghệ thông tin, môi trường, điện, vật lý kỹ thuật, xây dựng...); nông lâm (nông học, thú y...).</p>
+    </div>
+    <div class="questions">
+      <h3 class="phase" style="padding:3% 0">Trắc nghiệm John Holland: Tác giả: Phoenix Ho, Khuong Le, Uyen Dang. Dựa trên mô hình của tiến sỹ tâm lý John Holland (người Mỹ):
+        Trắc nghiệm Holland (hay còn gọi là trắc nghiệm sở thích Holland) được phát triển bởi tiến sĩ tâm lý học người Mỹ – John Holland.
+        Tại Việt Nam, bài trắc nghiệm này còn khá mới nhưng cũng đang được áp dụng rộng rãi trong công tác hướng nghiệp.</h3>
+      <h4 class="phase" style="padding:0">Các ý liệt kê trong mỗi bảng hướng đến các tố chất và năng lực cá nhân. Với mỗi ý sẽ có nhiều mức độ phù hợp, tương ứng với mỗi mức độ phù hợp,
+        sẽ được quy định một điểm số tương ứng. Điểm số tương ứng này do người làm trắc nghiệm đánh giá và tự cho điểm theo quy ước sau.</h4>
+      <ul>
+        <li>Bạn thấy ý đó chưa bao giờ đúng với bạn – tương ứng 0 đ</li>
+        <li>Chỉ thấy ý đó chỉ đúng trong một vài trường hợp – tương ứng 1 đ</li>
+        <li>Bạn thấy ý đó chỉ một nửa là đúng với bạn – tương ứng 2 đ</li>
+        <li>Bạn thấy ý đó gần như là đúng với bạn trong hầu hết mọi trường hợp, chỉ có một vài trường hợp là chưa đúng lắm – tương ứng 3đ</li>
+        <li>Bạn thấy ý đó là hoàn toàn đúng với bạn, không thể nào khác đi được – tương ứng 4 đ</li>
+      </ul>
+      <div class="A">
+        <h2 class="text-primary">Bảng A (R: Realistic - Người thực tế) </h2>
+        <table class="table table-bordered table-condensed table-striped table-hover col-lg-6 col-md-10 col-sm-8" >
+          <tr>
+            <th style="width:80%">Câu hỏi</th>
+            <th style="width:20%">Điểm</th>
+          </tr>
+          <tr>
+            <td>Tôi có tính tự lập</td>
+            <td>
+              <div class="form-group">
+                <select class="form-control" id="sel1">
+                  <option>0</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                </select>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Tôi suy nghĩ thực tế </td>
+            <td>
+              <div class="form-group">
+                <select class="form-control" id="sel1">
+                  <option>0</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                </select>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Tôi là người thích nghi với môi trường mới</td>
+            <td>
+              <div class="form-group">
+                <select class="form-control" id="sel1">
+                  <option>0</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                </select>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Tôi có thể vận hành, điều khiển các máy móc thiết bị</td>
+            <td>
+              <div class="form-group">
+                <select class="form-control" id="sel1">
+                  <option>0</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                </select>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Tôi làm các công việc thủ công như gấp giấy, đan, móc</td>
+            <td>
+              <div class="form-group">
+                <select class="form-control" id="sel1">
+                  <option>0</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                </select>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Tôi thích tiếp xúc với thiên nhiên, động vật, cây cỏ</td>
+            <td>
+              <div class="form-group">
+                <select class="form-control" id="sel1">
+                  <option>0</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                </select>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Tôi thích những công việc sử dụng tay chân hơn là trí óc</td>
+            <td>
+              <div class="form-group">
+                <select class="form-control" id="sel1">
+                  <option>0</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                </select>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Tôi thích những công việc thấy ngay kết quả</td>
+            <td>
+              <div class="form-group">
+                <select class="form-control" id="sel1">
+                  <option>0</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                </select>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Tôi thích làm việc ngoài trời hơn là trong phòng học, văn phòng</td>
+            <td>
+              <div class="form-group">
+                <select class="form-control" id="sel1">
+                  <option>0</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                </select>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="B">
+        <h2 class="text-primary">Bảng B (I: Investigative - Người thích nghiên cứu)</h2>
+      <table class="table table-bordered table-condensed table-striped table-hover col-lg-6 col-md-10 col-sm-8" >
+          <tr>
+            <th style="width:80%">Câu hỏi</th>
+            <th style="width:20%">Điểm</th>
+          </tr>
+          <tr>
+            <td>Tôi có tìm hiểu khám phá nhiều vấn đề mới</td>
+            <td>
+              <div class="form-group">
+                <select class="form-control" id="sel1">
+                  <option>0</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                </select>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Tôi có khả năng phân tích vấn đề</td>
+            <td>
+              <div class="form-group">
+                <select class="form-control" id="sel1">
+                  <option>0</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                </select>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Tôi biết suy nghĩ một cách mạch lạc, chặt chẽ</td>
+            <td>
+              <div class="form-group">
+                <select class="form-control" id="sel1">
+                  <option>0</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                </select>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Tôi thích thực hiện các thí nghiệm hay nghiên cứu</td>
+            <td>
+              <div class="form-group">
+                <select class="form-control" id="sel1">
+                  <option>0</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                </select>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Tôi có khả năng tổng hợp, khái quát, suy đoán những vấn đề</td>
+            <td>
+              <div class="form-group">
+                <select class="form-control" id="sel1">
+                  <option>0</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                </select>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Tôi thích những hoạt động điều tra, phân loại, kiểm tra, đánh giá</td>
+            <td>
+              <div class="form-group">
+                <select class="form-control" id="sel1">
+                  <option>0</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                </select>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Tôi tự tổ chức công việc mình phái làm</td>
+            <td>
+              <div class="form-group">
+                <select class="form-control" id="sel1">
+                  <option>0</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                </select>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Tôi thích suy nghĩ về những vấn đề phức tạp, làm những công việc phức tạp</td>
+            <td>
+              <div class="form-group">
+                <select class="form-control" id="sel1">
+                  <option>0</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                </select>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Tôi có khả năng giải quyết các vấn đề</td>
+            <td>
+              <div class="form-group">
+                <select class="form-control" id="sel1">
+                  <option>0</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                </select>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="C">
+        <h2 class="text-primary">Bảng C (A : Artistic - Người có tính nghệ sĩ) </h2>
+      <table class="table table-bordered table-condensed table-striped table-hover col-lg-6 col-md-10 col-sm-8" >
+          <tr>
+            <th style="width:80%">Câu hỏi</th>
+            <th style="width:20%">Điểm</th>
+          </tr>
+          <tr>
+            <td>Tôi là người dễ xúc động</td>
+            <td>
+              <div class="form-group">
+                <select class="form-control" id="sel1">
+                  <option>0</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                </select>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Tôi có óc tưởng tượng phong phú </td>
+            <td>
+              <div class="form-group">
+                <select class="form-control" id="sel1">
+                  <option>0</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                </select>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Tôi thích sự tự do, không theo những quy định , quy tắc</td>
+            <td>
+              <div class="form-group">
+                <select class="form-control" id="sel1">
+                  <option>0</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                </select>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Tôi có khả năng thuyết trình, diễn xuất </td>
+            <td>
+              <div class="form-group">
+                <select class="form-control" id="sel1">
+                  <option>0</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                </select>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Tôi có thể chụp hình hoặc vẽ tranh, trang trí, điêu khắc</td>
+            <td>
+              <div class="form-group">
+                <select class="form-control" id="sel1">
+                  <option>0</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                </select>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Tôi có năng khiếu âm nhạc</td>
+            <td>
+              <div class="form-group">
+                <select class="form-control" id="sel1">
+                  <option>0</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                </select>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Tôi có khả năng viết, trình bày những ý tưởng của mình</td>
+            <td>
+              <div class="form-group">
+                <select class="form-control" id="sel1">
+                  <option>0</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                </select>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Tôi thích làm những công việc mới, những công việc đòi hỏi sự sáng tạo</td>
+            <td>
+              <div class="form-group">
+                <select class="form-control" id="sel1">
+                  <option>0</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                </select>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Tôi thoải mái bộc lộ những ý thích</td>
+            <td>
+              <div class="form-group">
+                <select class="form-control" id="sel1">
+                  <option>0</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                </select>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="D">
+        <h2 class="text-primary">Bảng D (S: Social - người có Tính xã hội)</h2>
+      <table class="table table-bordered table-condensed table-striped table-hover col-lg-6 col-md-10 col-sm-8" >
+          <tr>
+            <th style="width:80%">Câu hỏi</th>
+            <th style="width:20%">Điểm</th>
+          </tr>
+          <tr>
+            <td>Tôi là người thân thiện, hay giúp đỡ người khác </td>
+            <td>
+              <div class="form-group">
+                <select class="form-control" id="sel1">
+                  <option>0</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                </select>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Tôi thích gặp gỡ, làm việc với con người</td>
+            <td>
+              <div class="form-group">
+                <select class="form-control" id="sel1">
+                  <option>0</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                </select>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Tôi là người lịch sự, tử tế</td>
+            <td>
+              <div class="form-group">
+                <select class="form-control" id="sel1">
+                  <option>0</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                </select>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Tôi thích khuyên bảo, huấn luyện hay giảng giải cho người khác </td>
+            <td>
+              <div class="form-group">
+                <select class="form-control" id="sel1">
+                  <option>0</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                </select>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Tôi là người biết lắng nghe</td>
+            <td>
+              <div class="form-group">
+                <select class="form-control" id="sel1">
+                  <option>0</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                </select>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Tôi thích các hoạt động chăm sóc sức khỏe của bản thân và người khác</td>
+            <td>
+              <div class="form-group">
+                <select class="form-control" id="sel1">
+                  <option>0</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                </select>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Tôi thích các hoạt động vì mục tiêu chung của cộng đồng, xã hội</td>
+            <td>
+              <div class="form-group">
+                <select class="form-control" id="sel1">
+                  <option>0</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                </select>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Tôi mong muốn mình có thể đóng góp để xã hội tốt đẹp hơn</td>
+            <td>
+              <div class="form-group">
+                <select class="form-control" id="sel1">
+                  <option>0</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                </select>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Tôi có khả năng hòa giải, giải quyết những sự việc mâu thuẫn</td>
+            <td>
+              <div class="form-group">
+                <select class="form-control" id="sel1">
+                  <option>0</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                </select>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="E">
+        <h2 class="text-primary">Bảng E (E: Enterprising - Người dám nghĩ dám làm)</h2>
+      <table class="table table-bordered table-condensed table-striped table-hover col-lg-6 col-md-10 col-sm-8" >
+          <tr>
+            <th style="width:80%">Câu hỏi</th>
+            <th style="width:20%">Điểm</th>
+          </tr>
+          <tr>
+            <td>Tôi là người có tính phiêu lưu, mạo hiểm</td>
+            <td>
+              <div class="form-group">
+                <select class="form-control" id="sel1">
+                  <option>0</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                </select>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Tôi có tính quyết đoán</td>
+            <td>
+              <div class="form-group">
+                <select class="form-control" id="sel1">
+                  <option>0</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                </select>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Tôi là người năng động </td>
+            <td>
+              <div class="form-group">
+                <select class="form-control" id="sel1">
+                  <option>0</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                </select>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Tôi có khả năng diễn đạt, tranh luận, và thuyết phục người khác </td>
+            <td>
+              <div class="form-group">
+                <select class="form-control" id="sel1">
+                  <option>0</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                </select>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Tôi thích các việc quản lý, đánh giá</td>
+            <td>
+              <div class="form-group">
+                <select class="form-control" id="sel1">
+                  <option>0</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                </select>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Tôi thường đặt ra các mục tiêu, kế hoạch trong cuộc sống</td>
+            <td>
+              <div class="form-group">
+                <select class="form-control" id="sel1">
+                  <option>0</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                </select>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Tôi thích gây ảnh hưởng đến người khác</td>
+            <td>
+              <div class="form-group">
+                <select class="form-control" id="sel1">
+                  <option>0</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                </select>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Tôi là người thích cạnh tranh, và muốn mình giói hơn người khác </td>
+            <td>
+              <div class="form-group">
+                <select class="form-control" id="sel1">
+                  <option>0</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                </select>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Tôi muốn người khác phải kính trọng, nể phục tôi</td>
+            <td>
+              <div class="form-group">
+                <select class="form-control" id="sel1">
+                  <option>0</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                </select>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="F">
+        <h2 class="text-primary">Bảng F (C : Conventional - người công chức) </h2>
+      <table class="table table-bordered table-condensed table-striped table-hover col-lg-6 col-md-10 col-sm-8" >
+          <tr>
+            <th style="width:80%">Câu hỏi</th>
+            <th style="width:20%">Điểm</th>
+          </tr>
+          <tr>
+            <td>Tôi là người có đầu óc sắp xếp, tổ chức </td>
+            <td>
+              <div class="form-group">
+                <select class="form-control" id="sel1">
+                  <option>0</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                </select>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Tôi có tính cẩn thận</td>
+            <td>
+              <div class="form-group">
+                <select class="form-control" id="sel1">
+                  <option>0</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                </select>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Tôi là người chu đáo, chính xác và đáng tin cậy</td>
+            <td>
+              <div class="form-group">
+                <select class="form-control" id="sel1">
+                  <option>0</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                </select>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Tôi thích công việc tính toán sổ sách, ghi chép số liệu</td>
+            <td>
+              <div class="form-group">
+                <select class="form-control" id="sel1">
+                  <option>0</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                </select>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Tôi thích các công việc lưu trữ, phân loại, cập nhất thông tin</td>
+            <td>
+              <div class="form-group">
+                <select class="form-control" id="sel1">
+                  <option>0</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                </select>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Tôi thường đặt ra những mục tiêu, kế hoạch trong cuộc sống</td>
+            <td>
+              <div class="form-group">
+                <select class="form-control" id="sel1">
+                  <option>0</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                </select>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Tôi thích dự kiến các khoản thu chi</td>
+            <td>
+              <div class="form-group">
+                <select class="form-control" id="sel1">
+                  <option>0</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                </select>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Tôi thích lập thời khóa biểu, sắp xếp lịch làm việc</td>
+            <td>
+              <div class="form-group">
+                <select class="form-control" id="sel1">
+                  <option>0</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                </select>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Tôi thích làm việc với các con số, làm việc theo hướng dẫn, quy trình</td>
+            <td>
+              <div class="form-group">
+                <select class="form-control" id="sel1">
+                  <option>0</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                </select>
+              </div>
+            </td>
+          </tr>
+        </table>
+        <div class="text-center">
+          <button type="button" name="button" class="btn btn-lg btn-primary">Nộp bài</button>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+
+
+</body>
+<%- include("partials/footer") -%>
+</html>

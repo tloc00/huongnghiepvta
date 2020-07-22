@@ -1,0 +1,294 @@
+<%- include("partials/header") -%>
+  <script>
+    var sum = [0, 0, 0, 0, 0, 0];
+    var count = 0;
+    $(document).ready(function() {
+      $("footer").css("margin-top", "5%");
+      for (let i = 1; i <= 6; i++)
+        $("." + i).hide();
+      $(".btn").click(function() {
+        $("footer").css("margin-top", "50%");
+        $(".questions").hide();
+        $("input").each(function(i) {
+          if ($(this).is(":checked"))
+            sum[$(this).val()]++;
+        });
+        var max = sum[0];
+        var index = 0;
+        for (let i = 1; i < 6; i++)
+          if (max < sum[i]) {
+            max = sum[i];
+            index = i;
+          }
+        $("." + String(index + 1)).show();
+      });
+    });
+  </script>
+</head>
+
+<body>
+  <%- include("partials/navbar") -%>
+  <div class="content">
+    <div class="questions">
+      <h3 class="phase">Trắc nghiệm sở thích Holland:
+  Tác giả: Th.S Trần Thị Thúy Lan và C.N Lê Thị Hương Giang
+  (Đại Học RMIT Việt Nam)
+  Bài trắc nghiệm này nhằm mục đích đưa ra tính cách, sở thích để lựa chọn nghề nghiệp phù hợp bản thân.
+  </h3>
+      <ul>
+        <li>Đánh dấu X vào ô vuông trước mỗi câu mà bạn thấy phù hợp với mình. Đừng suy nghĩ quá nhiều khi lựa chọn câu trả lời</li>
+        <li>Thời gian hoàn thành: 15 phút</li>
+        <li>Mỗi ô được đánh dấu sẽ tính là 1 điểm, không phải điểm cao là làm giỏi mà phải lựa chọn theo đúng suy nghĩ bản thân</li>
+        <li>Tính tổng lựa chon theo từng nhóm và điền vào ô “Tổng lựa chọn”</li>
+        <li>Xem kết quả ở cuối bài trắc nghiệm</li>
+      </ul>
+      <div class="table-responsive">
+        <table class="table table-bordered" style="width: 70%">
+          <tbody>
+            <!-- <tr class="row center"> -->
+            <tr>
+              <th scope="col-1">Tôi là người...</th>
+              <th scope="col-1">Tôi có thể...</th>
+              <th scope="col-1">Tôi thích...</th>
+            </tr>
+            <!-- <tr class="row">
+              <td class="col-4"> -->
+              <tr>
+                <td>
+                <div class="checkbox"><label><input type="checkbox" value="0"> Yêu thích vận động</label></div>
+                <div class="checkbox"><label><input type="checkbox" value="0"> Thẳng thắn</label></div>
+                <div class="checkbox"><label><input type="checkbox" value="0"> Thích làm việc với máy móc, dụng cụ</label></div>
+                <div class="checkbox"><label><input type="checkbox" value="0"> Thích sự cụ thể, rõ ràng</label></div>
+                <div class="checkbox"><label><input type="checkbox" value="0"> Khép kín</label></div>
+                <div class="checkbox"><label><input type="checkbox" value="0"> Thích làm việc ngoài trời</label></div>
+              </td>
+              <!-- <td class="col-4"> -->
+              <td>
+                <div class="checkbox"><label><input type="checkbox" value="0"> Sửa chữa các thiết bị điện/ ô tô, xe máy, xe đạp,...</label></div>
+                <div class="checkbox"><label><input type="checkbox" value="0"> Chơi 1 môn thể thao</label></div>
+                <div class="checkbox"><label><input type="checkbox" value="0"> Đọc bản vẽ/ bản thiết kế</label></div>
+                <div class="checkbox"><label><input type="checkbox" value="0"> Sử dụng/ vận hành/ bảo trì máy móc, thiết bị</label></div>
+                <div class="checkbox"><label><input type="checkbox" value="0"> Sử dụng công cụ để tạo kiểu tóc mới cho mình</label></div>
+                <div class="checkbox"><label><input type="checkbox" value="0"> Tự may áo/váy/đầm cho mình</label></div>
+              </td>
+              <!-- <td class="col-4"> -->
+              <td>
+                <div class="checkbox"><label><input type="checkbox" value="0"> Làm vườn/ trồng cây xanh, hoa kiểng</label></div>
+                <div class="checkbox"><label><input type="checkbox" value="0"> Xây dựng/ lắp ráp mô hình</label></div>
+                <div class="checkbox"><label><input type="checkbox" value="0"> Vận động tay chân và sử dụng tay chân để làm việc</label></div>
+                <div class="checkbox"><label><input type="checkbox" value="0"> Tự ráp đồ nội thất (bàn/ghế/tủ)/ tự đóng bàn, ghế, tủ,...</label></div>
+                <div class="checkbox"><label><input type="checkbox" value="0"> Nấu ăn/ làm bánh</label></div>
+                <div class="checkbox"><label><input type="checkbox" value="0"> Tham dự khoá học kỹ thuật (điện, sữa chữa máy móc...)</label></div>
+              </td>
+            </tr>
+            <!-- <tr class="row">
+              <td class="col-4"> -->
+              <tr>
+                <td>
+                <div class="checkbox"><label><input type="checkbox" value="1"> Hiểu biết rộng</label></div>
+                <div class="checkbox"><label><input type="checkbox" value="1"> Thích làm việc một mình</label></div>
+                <div class="checkbox"><label><input type="checkbox" value="1"> Khả năng phân tích cao</label></div>
+                <div class="checkbox"><label><input type="checkbox" value="1"> Suy nghĩ logic</label></div>
+                <div class="checkbox"><label><input type="checkbox" value="1"> Thích khoa học</label></div>
+                <div class="checkbox"><label><input type="checkbox" value="1"> Có khả năng quan sát tốt</label></div>
+              </td>
+              <!-- <td class="col-4"> -->
+              <td>
+                <div class="checkbox"><label><input type="checkbox" value="1"> Suy nghĩ trừu tượng</label></div>
+                <div class="checkbox"><label><input type="checkbox" value="1"> Giải các bài toán khó, phức tạp</label></div>
+                <div class="checkbox"><label><input type="checkbox" value="1"> Tiếp thu nhanh các lý thuyết khoa học</label></div>
+                <div class="checkbox"><label><input type="checkbox" value="1"> Giải thích các công thức toán học</label></div>
+                <div class="checkbox"><label><input type="checkbox" value="1"> Phân tích dữ liệu</label></div>
+                <div class="checkbox"><label><input type="checkbox" value="1"> Tiến hành những thí nghiệm khoa học</label></div>
+              </td>
+              <!-- <td class="col-4"> -->
+              <td>
+                <div class="checkbox"><label><input type="checkbox" value="1"> Đặt câu hỏi</label></div>
+                <div class="checkbox"><label><input type="checkbox" value="1"> Tìm hiểu nhiều ý kiến khác nhau về 1 vấn đề cụ thể nào đó</label></div>
+                <div class="checkbox"><label><input type="checkbox" value="1"> Sử dụng máy vi tính</label></div>
+                <div class="checkbox"><label><input type="checkbox" value="1"> Đọc sách/ báo chuyên ngành/ kỹ thuật</label></div>
+                <div class="checkbox"><label><input type="checkbox" value="1"> Thiết lập đề tài nghiên cứu, làm khảo sát và kiểm tra kết quả</label></div>
+                <div class="checkbox"><label><input type="checkbox" value="1"> Tham quan bảo tàng khoa học, phòng thí nghiệm, cơ sở khoa học</label></div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+            <!-- <tr class="row">
+              <td class="col-4"> -->
+                <div class="checkbox"><label><input type="checkbox" value="2"> Rất sáng tạo</label></div>
+                <div class="checkbox"><label><input type="checkbox" value="2"> Giàu trí tưởng tượng</label></div>
+                <div class="checkbox"><label><input type="checkbox" value="2"> Thích cải tiến, đổi mới</label></div>
+                <div class="checkbox"><label><input type="checkbox" value="2"> Độc đáo, khác lạ</label></div>
+                <div class="checkbox"><label><input type="checkbox" value="2"> Dễ xúc động</label></div>
+                <div class="checkbox"><label><input type="checkbox" value="2"> Rất nhạy cảm</label></div>
+              </td>
+              <!-- <td class="col-4"> -->
+              <td>
+                <div class="checkbox"><label><input type="checkbox" value="2"> Phác thảo, vẽ, tô tranh</label></div>
+                <div class="checkbox"><label><input type="checkbox" value="2"> Chơi 1 nhac cụ</label></div>
+                <div class="checkbox"><label><input type="checkbox" value="2"> Viết truyện/ thơ/ sáng tác nhạc</label></div>
+                <div class="checkbox"><label><input type="checkbox" value="2"> Hát/ diễn xuất/ nhảy/ khiêu vũ</label></div>
+                <div class="checkbox"><label><input type="checkbox" value="2"> Tự thiết kế quần áo cho mình, bạn bè và người thân/ thiết kế nội thất cho nhà mình</label></div>
+                <div class="checkbox"><label><input type="checkbox" value="2"> Chụp hình với những góc ảnh đẹp</label></div>
+              </td>
+              <!-- <td class="col-4"> -->
+              <td>
+                <div class="checkbox"><label><input type="checkbox" value="2"> Tham gia khóa học thiết kế</label></div>
+                <div class="checkbox"><label><input type="checkbox" value="2"> Học hát/ nhạc/ nhảy/ khiêu vũ/ diễn xuất</label></div>
+                <div class="checkbox"><label><input type="checkbox" value="2"> Làm đồ thủ công, tự làm quà cho bạn bè và người thân</label></div>
+                <div class="checkbox"><label><input type="checkbox" value="2"> Đọc truyện viễn tưởng/ kịch/ thơ ca</label></div>
+                <div class="checkbox"><label><input type="checkbox" value="2"> Thể hiện mình một cách sáng tạo/ mặc những thời trang lạ và thú vị</label></div>
+                <div class="checkbox"><label><input type="checkbox" value="2"> Xem hòa nhạc/ xem kịch/ triển lãm nghệ thuật</label></div>
+              </td>
+            </tr>
+            <tr>
+            <!-- <tr class="row"> -->
+              <!-- <td class="col-4"> -->
+              <td>
+                <div class="checkbox"><label><input type="checkbox" value="3"> Rất thân thiện, hòa đồng</label></div>
+                <div class="checkbox"><label><input type="checkbox" value="3"> Dễ thấu hiểu người khác</label></div>
+                <div class="checkbox"><label><input type="checkbox" value="3"> Hào phóng</label></div>
+                <div class="checkbox"><label><input type="checkbox" value="3"> Hay giúp đỡ người khác</label></div>
+                <div class="checkbox"><label><input type="checkbox" value="3"> Có tinh thần đồng đội, tinh thần hợp tác</label></div>
+                <div class="checkbox"><label><input type="checkbox" value="3"> Dễ tha thứ</label></div>
+              </td>
+              <!-- <td class="col-4"> -->
+              <td>
+                <div class="checkbox"><label><input type="checkbox" value="3"> Chỉ dẫn hoặc dạy người khác</label></div>
+                <div class="checkbox"><label><input type="checkbox" value="3"> Điều hành các cuộc thảo luậno</label></div>
+                <div class="checkbox"><label><input type="checkbox" value="3"> Hòa giải mâu thuẫn/ tranh chấp</label></div>
+                <div class="checkbox"><label><input type="checkbox" value="3"> Diễn đạt suy nghĩ và cảm xúc rất rõ ràng</label></div>
+                <div class="checkbox"><label><input type="checkbox" value="3"> Hợp tác tốt với những người khác</label></div>
+                <div class="checkbox"><label><input type="checkbox" value="3"> Chơi môn thể thao có tính đồng đội</label></div>
+              </td>
+              <!-- <td class="col-4"> -->
+              <td>
+                <div class="checkbox"><label><input type="checkbox" value="3"> Làm việc nhóm</label></div>
+                <div class="checkbox"><label><input type="checkbox" value="3"> Tham gia hoạt động tình nguyện với các nhóm hoạt động xã hội tại trường, nhà thờ, chùa, phường, xóm hay cộng đồng</label></div>
+                <div class="checkbox"><label><input type="checkbox" value="3"> Gặp gỡ và làm quen bạn mới</label></div>
+                <div class="checkbox"><label><input type="checkbox" value="3"> Lắng nghe và tư vấn cho người khác</label></div>
+                <div class="checkbox"><label><input type="checkbox" value="3"> Đóng góp trong các cuộc thảo luận</label></div>
+                <div class="checkbox"><label><input type="checkbox" value="3"> Tham gia các hội thảo về phát triển cộng đồng và giải quyết các vấn đề xã hội</label></div>
+              </td>
+            </tr>
+            <tr>
+            <!-- <tr class="row"> -->
+              <!-- <td class="col-4"> -->
+              <td>
+                <div class="checkbox"><label><input type="checkbox" value="4"> Thích phiêu lưu</label></div>
+                <div class="checkbox"><label><input type="checkbox" value="4"> Quyết đoán</label></div>
+                <div class="checkbox"><label><input type="checkbox" value="4"> Thuộc dạng nổi tiếng ở trường</label></div>
+                <div class="checkbox"><label><input type="checkbox" value="4"> Có sức thuyết phục</label></div>
+                <div class="checkbox"><label><input type="checkbox" value="4"> Có nhiều hoài bão/ tham vọng</label></div>
+                <div class="checkbox"><label><input type="checkbox" value="4"> Thích giao du, thích kết bạn</label></div>
+              </td>
+              <!-- <td class="col-4"> -->
+              <td>
+                <div class="checkbox"><label><input type="checkbox" value="4"> Khởi đầu/ đề xuất dự án mới</label></div>
+                <div class="checkbox"><label><input type="checkbox" value="4"> Thuyết phục người khác làm việc theo ý của tôi</label></div>
+                <div class="checkbox"><label><input type="checkbox" value="4"> Lãnh đạo một nhóm</label></div>
+                <div class="checkbox"><label><input type="checkbox" value="4"> Bán hàng hoặc quảng bá ý tưởng</label></div>
+                <div class="checkbox"><label><input type="checkbox" value="4"> Lên kế hoạch/ chiến lược để đạt được mục tiêu</label></div>
+                <div class="checkbox"><label><input type="checkbox" value="4"> Điều hành hoạt động kinh doanh của gia đình</label></div>
+              </td>
+              <!-- <td class="col-4"> -->
+              <td>
+                <div class="checkbox"><label><input type="checkbox" value="4"> Có quyền lực, địa vị/ được bầu cử vào những vị trí quan trọng</label></div>
+                <div class="checkbox"><label><input type="checkbox" value="4"> Đưa ra quyết định có ảnh hưởng đến những người khác</label></div>
+                <div class="checkbox"><label><input type="checkbox" value="4"> Giành chiến thắng một giải thưởng lãnh đạo hoặc bán hàng</label></div>
+                <div class="checkbox"><label><input type="checkbox" value="4"> Gặp gỡ những người quan trọng</label></div>
+                <div class="checkbox"><label><input type="checkbox" value="4"> Tham gia khóa học về kinh doanh/ marketing/ bán hàng</label></div>
+                <div class="checkbox"><label><input type="checkbox" value="4"> Đọc tạp chí kinh doanh</label></div>
+              </td>
+            </tr>
+            <!-- <tr class="row"> -->
+            <tr>
+              <!-- <td class="col-4"> -->
+              <td>
+                <div class="checkbox"><label><input type="checkbox" value="5"> Gọn gàng, ngăn nắp</label></div>
+                <div class="checkbox"><label><input type="checkbox" value="5"> Làm việc nguyên tắc, có trình tự, có kế hoạch</label></div>
+                <div class="checkbox"><label><input type="checkbox" value="5"> Chính xác</label></div>
+                <div class="checkbox"><label><input type="checkbox" value="5"> Thích làm việc với dữ liệu, con số, văn bản</label></div>
+                <div class="checkbox"><label><input type="checkbox" value="5"> Tuân thủ nguyên tắc</label></div>
+                <div class="checkbox"><label><input type="checkbox" value="5"> Chu đáo, tỉ mỉ</label></div>
+              </td>
+              <!-- <td class="col-4"> -->
+              <td>
+                <div class="checkbox"><label><input type="checkbox" value="5"> Làm việc tốt trong khuôn khổ hệ thống</label></div>
+                <div class="checkbox"><label><input type="checkbox" value="5"> Giải quyết công việc giấy tờ một cách nhanh chóng, hiệu quả và ngăn nắp</label></div>
+                <div class="checkbox"><label><input type="checkbox" value="5"> Thực hiện các công việc đòi hỏi chú ý đến các chi tiết (sửa lỗi các văn bản, sắp xếp, dàn dựng chương trình cho sự kiện,...)</label></div>
+                <div class="checkbox"><label><input type="checkbox" value="5"> Tổ chức, dàn dựng chương trình cho các hoạt động, sự kiện như tổ chức đêm ca nhạc, tổ chức buổi dã ngoại cho cả lớp, câu lạc bộ</label></div>
+                <div class="checkbox"><label><input type="checkbox" value="5"> Gõ nhanh hoặc viết tốc ký</label></div>
+                <div class="checkbox"><label><input type="checkbox" value="5"> Lưu trữ dữ liệu, hồ sơ chính xác</label></div>
+              </td>
+              <!-- <td class="col-4"> -->
+              <td>
+                <div class="checkbox"><label><input type="checkbox" value="5"> Sử dụng các thiết bị xử lý dữ liệu</label></div>
+                <div class="checkbox"><label><input type="checkbox" value="5"> Sưu tầm đồ kỉ niệm</label></div>
+                <div class="checkbox"><label><input type="checkbox" value="5"> Học, tìm hiểu các thủ tục, quy định, luật lệ (vd: luật thuế, luật kinh doanh...)</label></div>
+                <div class="checkbox"><label><input type="checkbox" value="5"> Sắp xếp nhà cửa hoặc nơi làm việc</label></div>
+                <div class="checkbox"><label><input type="checkbox" value="5"> Chơi trò tìm sự khác biệt giữa hai hình ảnh</label></div>
+                <div class="checkbox"><label><input type="checkbox" value="5"> Làm việc dựa trên hướng dẫn cụ thể</label></div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="text-center">
+        <button type="button" name="button" class="btn btn-lg btn-primary">Nộp bài</button>
+      </div>
+    </div>
+    <div class="1">
+      <h3>Nhóm 1: Nhóm Kỹ Thuật - “Người hành động”</h3>
+      <p>Đây là những người thích vận động thể thao hoặc
+        có khả năng làm việc tốt với máy móc, vật thể,
+        công cụ, cây cảnh hoặc con vật, hoặc thích làm
+        việc ngoài trời.
+      </p>
+    </div>
+    <div class="2">
+      <h3>Nhóm 2: Nhóm Nghiên cứu - “Người tư duy”</h3>
+      <p>Đây là những người thích quan sát, học hỏi, tìm
+        hiểu, tra cứu, phân tích, đánh giá và giải quyết vấn
+        đề.
+      </p>
+    </div>
+    <div class="3">
+      <h3>Nhóm 3: Nghệ thuật - “Người kiến tạo”</h3>
+      <p>Đây là những người có khả năng nghệ thuật, cải
+        tiến, trực giác và thích làm việc trong các tình
+        huống không có kế hoạch trước như dùng trí
+        tưởng tượng và sáng tạo
+      </p>
+    </div>
+    <div class="4">
+      <h3>Nhóm 4: Nhóm Xã Hội - “Người giúp đỡ”</h3>
+      <p>Đây là những người thích làm việc với con người,
+        thích soi sáng, giúp đỡ, truyền đạt thông tin, huấn
+        luyện hoặc chữa trị cho người khác hoặc có kỹ
+        năng về ngôn ngữ
+      </p>
+    </div>
+    <div class="5">
+      <h3>Nhóm 5: Quản lý - “Người thuyết phục”</h3>
+      <p>Đây là những người thích làm việc với con người,
+        thích ảnh hưởng, thuyết phục, thể hiện, lãnh đạo
+        hoặc quản lý con người vì các mục tiêu của tổ
+        chức hoặc lợi ích kinh tế.
+      </p>
+    </div>
+    <div class="6">
+      <h3>Nhóm 6: Nghiệp vụ - “Người sắp xếp”</h3>
+      <p>Đây là những người thích làm việc với dữ liệu, có
+        kỹ năng làm việc với con số và công việc lưu trữ,
+        văn thư, thực hiện nhiệm vụ được giao một cách
+        chi tiết hoặc thực thi nhiệm vụ dựa vào sự hướng
+        dẫn của người khác.
+      </p>
+    </div>
+  </div>
+
+</body>
+<%- include("partials/footer") -%>
+</html>

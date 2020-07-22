@@ -1,0 +1,292 @@
+<%- include("partials/header") -%>
+  <script>
+    $(document).ready(function() {
+      $("footer").css("margin-top", "5%");
+      var char1 = ["A", "B", "C"];
+      var char2 = ["X", "Y", "Z"];
+      for (let i = 0; i < 3; i++)
+        for (let j = 0; j < 3; j++)
+          $("." + char1[i] + char2[j]).hide();
+      $(".btn").click(function() {
+        $("footer").css("margin-top", "50%");
+        $(".questions").hide();
+        var result = "";
+        $("input").each(function(i) {
+          if ($(this).is(":checked"))
+            {
+              result += $(this).val();
+            }
+        });
+        $("." + result.substring(0, 2)).show();
+      });
+    });
+  </script>
+</head>
+
+<body>
+  <%- include("partials/navbar") -%>
+  <div class="content">
+    <div class="questions">
+      <h3 class="phase">Trắc nghiệm MBTI: https://mbti.vn/
+        Bài trắc nghiệm do hai mẹ con nhà Briggs (người Mỹ)
+      </h3>
+      <p>Đây là một phương pháp sử dụng những câu hỏi nhằm kiểm tra tâm lí, tính cách của một người trên cơ sở đáp án mà người đó chọn đối với vấn đề được đặt ra. Trắc nghiệm tính cách MBTI đặc biệt nhấn mạnh vào sự khác biệt về mặt tự nhiên của từng
+        người dựa trên tứng câu trả lời của họ cho các câu hỏi để suy ra những cá tính, tính cách riêng biệt của từng người.</p>
+      <form>
+        <h3>1. Chọn thứ giống với bạn nhất A, B hay C?</h3>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="A"> A<br>
+            Tôi có vẻ khá độc lập và quyết đoán: Tôi cảm thấy rằng mọi thứ diễn ra tốt nhất khi tôi lao đầu vào nó.<br>
+            Tôi đặt ra các mục tiêu, để hết tâm trí vào đó, và mong muốn thực hiện công việc. <br>
+            Tôi lập mục tiêu cho riêng mình, tham dự vào và muốn biến chúng thành hiện thực. <br>
+            Tôi không thích ngồi một chỗ - Tôi muốn đạt được cái gì đó to lớn và có ảnh hướng mạnh. <br>
+            Tôi không hẳn là muốn đối đầu, nhưng tôi cũng không để người khác chỉ đạo tôi. <br>
+            Phần lớn thời gian, tôi biết tôi muốn gì, và tôi thực hiện nó. <br>
+            Tôi có xu hướng làm việc hết mình và chơi hết mình.
+          </label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="B"> B<br>
+            Tôi có khuynh hướng hòa nhã, kín đáo, trầm lặng, ít nói và thường thích ở một mình. <br>
+            Tôi thường không quan tâm tới những khía cạnh xã hội của mình, và nói chung tôi thường không đòi quyền lợi của mình một cách mạnh mẽ. <br>
+            Tôi không cảm thấy thoải mái khi đứng đầu hay ganh đua như những người khác. <br>
+            Nhiều người có thể nói rằng tôi giống người đang mơ - phần nhiều sự sôi động của tôi nằm trong trí tưởng tượng. <br>
+            Tôi có thể hài lòng mà không cảm thấy mình phải luôn năng động trong mọi tình huống.
+          </label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="C"> C<br>
+            Tôi có vẻ rất có trách nhiệm và tận tâm. <br>
+            Tôi cảm thấy khủng khiếp nếu tôi không thể giữ lời hứa và không thể làm cái người ta mong đợi ở tôi. <br>
+            Tôi muốn mọi người biết rằng tôi ở đây vì họ, và tôi sẽ làm cái gì tôi tin là tốt nhất cho họ. <br>
+            Tôi thường hi sinh bản thân rất nhiều vì người khác, cho dù họ biết điều đó hay không. <br>
+            Tôi thường không chăm sóc mình đúng mức – tôi làm những thứ cần làm và nghỉ ngơi (và làm những thứ tôi thực sự cần) nếu tôi còn thời gian.
+          </label>
+        </div>
+      </form>
+      <form>
+        <h3>2. Chọn thứ giống với bạn nhất X, Y hay Z ?</h3>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="X"> X <br>
+            Tôi là người luôn giữ một quan điểm, cảm xúc tích cực và cảm thấy mọi thứ sẽ kết thúc tốt đẹp. <br>
+            Thường tôi có thể tìm ra nhiều phương cách khác nhau và việc gì đó đầy say mê để giúp tôi luôn bận rộn. <br>
+            Tôi thích ở gần mọi người và giúp đỡ mọi người hạnh phúc – Tôi thích chia sẻ niềm hạnh phúc của mình với người khác. <br>
+            (Không phải lúc nào tôi cũng ở trong tình trạng tốt, nhưng tôi luôn cố không thể hiện điều đó!) Dù vậy, luôn cảm thầy tích cực thỉnh thoảng cũng tương đương với việc tôi không giải quyết những vấn đề của mình trong thời gian dài.
+
+          </label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="Y"> Y<br>
+            Tôi là người có cảm xúc rõ ràng về mọi thứ - đa phần mọi người có thể biết lúc nào tôi không vui về một cái gì đó. <br>
+            Tôi có thể cảnh giác với người khác, nhưng tôi nhạy cảm hơn là tôi làm ra vẻ. <br>
+            Tôi muốn biết tôi đang ở đâu trong mối quan hệ với người khác và tôi có thể trông đợi vào đâu - mọi người thường cảm thấy rõ ràng quan hệ của họ với tôi như thế nào. <br>
+            Khi tôi bối rối, khó chịu, bực mình về điều gì đó, tôi muốn người xung quanh đáp ứng lại (và cũng bực mình như tôi), và cùng "xốc" mọi việc lên như tôi<br>
+            Tôi biết quy tắc, nhưng tôi không muốn người khác bảo tôi phải làm gì. Tôi muốn tự quyết định bản thân.
+          </label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="Z"> Z<br>
+            Tôi có xu hướng tự chủ và logic – tôi cảm thấy không thoải mái khi để tình cảm chen lẫn vào công việc. <br>
+            Tôi rât có năng lực - thậm chí hoàn hảo – và tôi muốn tự làm việc một mình. <br>
+            Khi có vấn đề hay xung đột cá nhân, tôi cố không để cảm xúc của mình xen vào. <br>
+            Có người nó tôi lạnh lùng và tách rời, nhưng tôi không muốn phản ứng tình cảm của mình che mất cái gì thực sự quan trọng với tôi. <br>
+            Tôi thường không thể hiện phản ứng của mình khi người khác “tác động vào tôi”.
+          </label>
+        </div>
+      </form>
+      <div class="text-center">
+        <button type="button" name="button" class="btn btn-lg btn-primary">Nộp bài</button>
+      </div>
+    </div>
+    <div class="CZ">
+      <h3>1 - Mã số CZ: Người cầu toàn, cải cách </h3>
+      <p>§ Kỷ luật, nghiêm túc, trách nhiệm...<br>
+        § Khó tính, luôn muốn cải thiện mọi thứ xung quanh. <br>
+        § Dễ phê phán và cầu toàn<br>
+        § Khó khăn khi kiềm chế và mất kiên nhẫn... <br>
+        - Những nghề nghiệp gợi ý dành cho Số 1: Bất kể ngành nghề nào mà môi trường làm việc có một quy luật riêng biệt, rõ ràng và chặt chẽ để mọi người tuân thủ bên cạnh đó cũng tạo cho họ cơ hội tốt để thăng quan tiến chức. <br>
+        - Thư ký, Hành chính hoặc Trợ lý giám đốc<br>
+        - Giám đốc (mid hoặc upper-level) <br>
+        - Kế toán<br>
+        - Chuyên viên cố vấn/hoạch định tài chính<br>
+        - Thư ký/trợ lý cho Luật sư<br>
+        - Môi giới<br>
+        - Quy hoạch đô thị<br>
+        - Luật sư ( Số 1 là một trong những type có khả năng tốt trở thành một luật sư tài giỏi vì họ có óc quan sát nhạy bén đối với chi tiết) <br>
+        - Gíam đốc kĩ thuật<br>
+        - Lập trình viên
+      </p>
+    </div>
+    <div class="CX">
+      <h3>2 - Mã số CX: Người yêu thương, giúp đỡ </h3>
+      <p>§ Đồng cảm, ngay thật và quan tâm... <br>
+        § Luôn muốn làm hài lòng người khác. <br>
+        § Thân thiện, đôi khi đa cảm<br>
+        § Vấn đề với việc chăm sóc bản thân và nói ra cái mình muốn... <br>
+        - Những nghề nghiệp gợi ý dành cho Số 2: Những tổ chức phi lợi nhuận. Hoặc một công việc cùng với những tình nguyện viên có cùng suy nghĩ giống như bạn đây. <br>
+        - Giáo viên ( trung học và tiểu học) <br>
+        - Thiết kế thời trang<br>
+        - Nhân viên bán hàng<br>
+        - Bồi bàn/Bartender<br>
+        - Phó bếp<br>
+        - Thiết kế đồ họa<br>
+        - Lính cứu hỏa<br>
+        - Y tá<br>
+        - Người giúp việc giao hàng<br>
+        - Tổ chức đám cưới<br>
+        - Nội trợ
+      </p>
+    </div>
+    <div class="AZ">
+      <h3>3 - Mã số AZ: Người tham vọng, tạo lập, cầu tiến </h3>
+      <p>§ Tự tin, lôi cuốn, thích nghi & tập trung... <br>
+        § Bị dính vào hình ảnh bản thân trong mắt người khác... <br>
+        § Bị điều khiển bởi tham vọng<br>
+        § Gặp vấn đề do tham công tiếc việc và tính ganh đua... <br>
+        - Những nghề nghiệp gợi ý dành cho Số 3: Một công việc có mức lương phù hợp cũng như cơ hội tốt để thăng quan tiến chức để họ có thể phát huy khả năng của mình và tỏa sáng. <br>
+        - Người trình diễn/Người làm công việc giải trí<br>
+        - Nhân viên (thể thao, du lịch, văn thư hay bảo hiểm) <br>
+        - Giám đốc quan hệ cộng chúng<br>
+        - Luật sư<br>
+        - Trợ lý giám đốc<br>
+        - Trợ lý riêng (chỉ đối với những cá nhân quan trọng!) <br>
+        - Nhà báo chuyên viết về những người nổi tiếng <br>
+        - Nhân viên bán hàng<br>
+        - Nhà hoạt động chính trị (hoặc có thể trở thành một chính khách) <br>
+        - Người phát ngôn/người viết truyền cảm hứng<br>
+        - Life/Business coach
+      </p>
+    </div>
+    <div class="BY">
+      <h3>4 - Mã số BY: Người cá tính, lãng mạn, nội tâm </h3>
+      <p>§ Lãng mạn, nội tâm, kín đáo, nhạy cảm... <br>
+        § Dễ tổn thương nên hay giấu giếm bản thân... <br>
+        § Cảm hứng dễ buồn rầu<br>
+        § Vấn đề đặc trưng là buông thả và tự than vãn... <br>
+        - Những nghề nghiệp gợi ý dành cho Số 4: Họ có thể sẽ thay đổi công việc của mình nhiều lần nếu không thể đáp ứng được những nhu cầu trên. <br>
+        - Nhà tâm lý học<br>
+        - Chuyên viên sức khỏe toàn diện<br>
+        - Giảng viên múa/Yoga<br>
+        - Nhân viên mát-xa<br>
+        - Nghệ sĩ<br>
+        - Nhà văn<br>
+        - Cố vấn quan hệ/vợ chồng<br>
+        - Life coach<br>
+        - Tổng đài tư vấn khủng hoảng tâm lý<br>
+        - Nhà truyền giáo<br>
+        - Thiết kế web/đồ họa<br>
+        - Diễn viên/ Nhạc sĩ
+      </p>
+    </div>
+    <div class="BZ">
+      <h3>5 - Mã số BZ: Người lý trí, quan sát </h3>
+      <p>§ Mãnh liệt, duy trí, tò mò, sáng tạo... <br>
+        § Độc lập sáng tạo, hay phát triển các kỹ năng phức tạp... <br>
+        § Dễ bị xúc động và tách rời<br>
+        § Vấn đề bởi sự tách biệt, lập dị và đôi khi không thực tế... <br>
+        - Những nghề nghiệp gợi ý dành cho Số 5: Khoa học và công nghệ. <br>
+        - Tư vấn quản lý rủi ro tài chính<br>
+        - Kĩ sư điện/hóa học<br>
+        - Kiến trúc sư<br>
+        - Nhà thiên văn học<br>
+        - Nhà vậy lý học<br>
+        - Quy hoạch môi trường<br>
+        - Thiết kế trò chơi<br>
+        - Nhà nghiên cứu y học<br>
+        - Giáo sư Đại học<br>
+        - Thiết kế phần mềm<br>
+        - Hỗ trợ kĩ thuật<br>
+        - Quản lý cơ sở dữ liệu/phát triển/ thiết kế web
+      </p>
+    </div>
+    <div class="CY">
+      <h3>6 - Mã số CY: Người chất vấn, trung thành </h3>
+      <p>§ Trách nhiệm, đáng tin cậy, chăm chỉ... <br>
+        § Luôn tìm kiếm sự an toàn trong mọi lĩnh vực... <br>
+        § Lo âu nên lẩn tránh & phòng thủ<br>
+        § Vấn đề là nghi ngờ bản thân và ngờ vực... <br>
+        - Những nghề nghiệp gợi ý dành cho Số 6: Có rất nhiều hướng đi dành cho E6, và cũng có nhiều công việc đang chờ đón họ. <br>
+        - Trợ lý luật sư<br>
+        - Giáo viên tiểu học<br>
+        - Chăm sóc trẻ em<br>
+        - Thư ký/trợ lý giám đốc<br>
+        - Nhân viên hoặc cố vấn viên cho vay/tín dụng<br>
+        - Nhân viên bảo vệ/hộ tống<br>
+        - Nhân viên cố vấn hỗ trợ tài chính<br>
+        - Công chứng viên<br>
+        - Định phí bảo hiểm<br>
+        - Thanh tra an toàn và sức khỏe<br>
+        - Ngân hàng<br>
+        - Hỗ trợ kĩ thuật<br>
+        - Underwriter bảo hiểm
+      </p>
+    </div>
+    <div class="AX">
+      <h3>7 - Mã số AX: Người nhiệt tình, phiêu lưu </h3>
+      <p>§ Lạc quan, tháo vát, hài hước, năng động... <br>
+        § Hướng tới và tìm kiếm những niềm vui trong cuộc sống... <br>
+        § Dễ mệt mỏi và quẫn trí<br>
+        § Vấn đề chủ yếu là sự nông cạn và bốc đồng... <br>
+        - Những nghề nghiệp gợi ý dành cho Số 7: Những công việc độc lập tự chủ hoặc những công việc mang lại cho họ sự “vui vẻ”. <br>
+        - Chủ doanh nghiệp nhỏ (hoặc phức hợp kinh doanh) <br>
+        - Hướng dẫn viên du lịch<br>
+        - Người viết du ký<br>
+        - Nghệ sĩ/Nhạc sĩ<br>
+        - Nhà phê bình ẩm thực<br>
+        - Kiểm lâm<br>
+        - Vận động viên chuyên nghiệp<br>
+        - Vũ công<br>
+        - Nhiếp ảnh gia<br>
+        - DJ<br>
+        - Chủ hộp đêm<br>
+        - Người biểu diễn trên du thuyền
+      </p>
+    </div>
+    <div class="AY">
+      <h3>8 - Mã số AY: Người mạnh mẽ, quyết đoán, thách thức </h3>
+      <p>§ Mạnh mẽ, tự tin, quyết đoán, hào hiệp... <br>
+        § Luôn muốn nắm giữ và điều khiển được môi trường... <br>
+        § Cứng đầu và độc đoán<br>
+        § Khó khăn khi cho phép mình gần người khác... <br>
+        - Những nghề nghiệp gợi ý dành cho Số 8: Một nghề nghiệp có thể tạo nên sự thay đổi và khác biệt sẽ là một nghề nghiệp thích hợp cho loại enneagram này. <br>
+        - Tổ chức sự kiện<br>
+        - Cố vấn tài chính<br>
+        - Cố vấn nghề nghiệp<br>
+        - Tâm lý học tổ chức<br>
+        - CEO/CFO/CAO (bất kể quy mô doanh nghiệp) <br>
+        - Quản lý Marketing<br>
+        - Giám đốc bán hàng<br>
+        - Chủ/quản lý nhà hàng<br>
+        - Chính trị gia<br>
+        - Quản lý y tế<br>
+        - Phân tích thị trường<br>
+        - Giám đốc quảng cáo<br>
+        - Tổng thống
+      </p>
+    </div>
+    <div class="BX">
+      <h3>9 - Mã số BX: Người ôn hòa </h3>
+      <p>§ Khoan dung, đôn hậu, tốt bụng và kiên định... <br>
+        § Tìm tới sự yên bình... <br>
+        § Ghét và né tránh xung đột. Dễ tự mãn, giảm thiểu lo lắng. <br>
+        § Vấn đề chủ yếu là bị động và ngoan cố... <br>
+        - Những nghề nghiệp gợi ý dành cho Số 9: Những công việc ít áp lực và bon chen. <br>
+        - Chuyên viên giám định sản phẩm<br>
+        - Nhân viên bán hành điện tử/máy móc tự động<br>
+        - Thư ký bán lẻ<br>
+        - Dịch vụ giao hàng tận nơi<br>
+        - Cố vấn viên tại trường học<br>
+        - Giáo viên/giáo sư<br>
+        - Người huấn luyện thú/Bác sĩ thú ý<br>
+        - Biên tập phim<br>
+        - Nhạc sĩ/Giảng viên âm nhạc (E9 có một tình yêu vô bờ đối với âm nhạc) <br>
+        - Nhà văn<br>
+        - Thiết kế áo quần<br>
+        - Nghệ sĩ
+      </p>
+    </div>
+  </div>
+
+</body>
+<%- include("partials/footer") -%>
+</html>

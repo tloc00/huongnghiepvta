@@ -1,0 +1,70 @@
+.phase{
+  text-align: justify;
+  padding: 2%;
+}
+.center{
+  text-align: center;
+}
+.col-2{
+  text-align: center;
+}
+table{
+  /* margin-left: 10%;
+  margin-right: 10%; */
+  background-color: white !important;
+  /* width: 50% !important; */
+  /* margin: auto; */
+  border: black solid 2px !important;
+  margin: 3% auto !important;
+}
+td, select{
+  vertical-align: middle !important;
+}
+th{
+  border:1px solid grey !important;
+  text-align: center !important;
+  background-color: #85C1E9;
+}
+td{
+    border:1px solid grey !important;
+}
+.form-group{
+  margin: 0 !important;
+}
+.content{
+    margin: 0 2% !important;
+}
+body{
+  background-color: #eee !important;
+}
+button{
+  margin-bottom: 3% !important;
+}
+.navbar-toggler{
+  margin: 0 !important;
+}
+
+
+
+.footer-padding {
+	padding-bottom: 60px;
+}
+
+.footer {
+	/* position: absolute; */
+	text-align: center;
+  vertical-align: middle !important;
+	bottom: 0;
+	background-color: #212529;
+}
+
+.footer p {
+	padding-top: 25px;
+	font-size: 15px;
+  color: #fff;
+}
+@media screen and (min-width: 1024px){
+  .content{
+      margin: 0 15% !important;
+  }
+}

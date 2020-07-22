@@ -1,0 +1,371 @@
+<%- include("partials/header") -%>
+  <script>
+    var sum = [0, 0, 0, 0];
+    $(document).ready(function() {
+      $("footer").css("margin-top", "5%");
+      for(let i = 0; i < 4; i++)
+        $("." + i).hide();
+      $(".btn").click(function() {
+        $("footer").css("margin-top", "50%");
+        $(".questions").hide();
+        $("input").each(function(i) {
+          if ($(this).is(":checked"))
+            sum[$(this).val()]++;
+        });
+        let max = Math.max.apply(null, sum);
+        sum.forEach((item, i) => {
+          if(item === max)
+            $("." + i).show();
+        });
+      });
+    });
+  </script>
+  <style>
+    input[class="checkbox2"] {
+      filter: invert(100%);
+    }
+  </style>
+</head>
+
+<body>
+  <%- include("partials/navbar") -%>
+  <div class="content">
+    <div class="questions">
+      <h3 class="phase">Trắc nghiệm DISC: Tác giả của Trắc nghiệm DISC là nhà tâm lý học William Moulton Marston - còn được biết dưới cái tên Charles Moulton. Bài kiểm tra DISC là một loại trắc nghiệm dùng để đánh giá hành vi cá nhân tập trung vào bốn đặc điểm tính cách nổi bật con người trong một khoảng thời gian nhất định. Giúp bạn hiểu rõ bản thân mình hơn. Cải thiện các mối quan hệ làm việc bằng cách tiếp thu nhu cầu giao tiếp giữa các thành viên trong nhóm. Tạo điều kiện làm việc theo nhóm tốt hơn và hạn chế xung đột
+      </h3>
+      <p class="phase">Đánh dấu vào ô màu trắng các từ miêu tả tính cách của bạn trong công việc. Tương tự như thế, đánh dấu vào ô màu đen các từ miêu tả tính cách của bạn khi ở nhà <strong>(có thể dánh dấu 2 màu cùng một ô).</strong> Bạn có thể bỏ trống ở những từ không phù hợp hoặc không mô tả tính cách của bạn.</p>
+      <table class="table table-bordered" style="width:90%">
+        <tbody>
+          <tr class="d-flex center">
+            <th class="col-3">Mạnh mẽ
+              <div>
+                <label><input type="checkbox" value="0"></label>
+                <label><input type="checkbox" value="0" class="checkbox2"></label>
+              </div>
+            </th>
+            <th class="col-3">Lạc quan
+              <div>
+                <label><input type="checkbox" value="1"></label>
+                <label><input type="checkbox" value="1" class="checkbox2"></label>
+              </div>
+            </th>
+            <th class="col-3">Thích nghi
+              <div>
+                <label><input type="checkbox" value="2"></label>
+                <label><input type="checkbox" value="2" class="checkbox2"></label>
+              </div>
+            </th>
+            <th class="col-3">Phân tích
+              <div>
+                <label><input type="checkbox" value="3"></label>
+                <label><input type="checkbox" value="3" class="checkbox2"></label>
+              </div>
+            </th>
+          </tr>
+          <tr class="d-flex center">
+            <th class="col-3">Cứng cỏi
+              <div>
+                <label><input type="checkbox" value="0"></label>
+                <label><input type="checkbox" value="0" class="checkbox2"></label>
+              </div>
+            </th>
+            <th class="col-3">Nhiệt tình
+              <div>
+                <label><input type="checkbox" value="1"></label>
+                <label><input type="checkbox" value="1" class="checkbox2"></label>
+              </div>
+            </th>
+            <th class="col-3">Trung thành
+              <div>
+                <label><input type="checkbox" value="2"></label>
+                <label><input type="checkbox" value="2" class="checkbox2"></label>
+              </div>
+            </th>
+            <th class="col-3">Tỉ mỉ
+              <div>
+                <label><input type="checkbox" value="3"></label>
+                <label><input type="checkbox" value="3" class="checkbox2"></label>
+              </div>
+            </th>
+          </tr>
+          <tr class="d-flex center">
+            <th class="col-3">Thẳng thắn
+              <div>
+                <label><input type="checkbox" value="0"></label>
+                <label><input type="checkbox" value="0" class="checkbox2"></label>
+              </div>
+            </th>
+            <th class="col-3">Cầu tiến
+              <div>
+                <label><input type="checkbox" value="1"></label>
+                <label><input type="checkbox" value="1" class="checkbox2"></label>
+              </div>
+            </th>
+            <th class="col-3">Kiên nhẫn
+              <div>
+                <label><input type="checkbox" value="2"></label>
+                <label><input type="checkbox" value="2" class="checkbox2"></label>
+              </div>
+            </th>
+            <th class="col-3">Phục tùng
+              <div>
+                <label><input type="checkbox" value="3"></label>
+                <label><input type="checkbox" value="3" class="checkbox2"></label>
+              </div>
+            </th>
+          </tr>
+          <tr class="d-flex center">
+            <th class="col-3">Tự tin
+              <div>
+                <label><input type="checkbox" value="0"></label>
+                <label><input type="checkbox" value="0" class="checkbox2"></label>
+              </div>
+            </th>
+            <th class="col-3">Nghị lực
+              <div>
+                <label><input type="checkbox" value="1"></label>
+                <label><input type="checkbox" value="1" class="checkbox2"></label>
+              </div>
+            </th>
+            <th class="col-3">Thông cảm
+              <div>
+                <label><input type="checkbox" value="2"></label>
+                <label><input type="checkbox" value="2" class="checkbox2"></label>
+              </div>
+            </th>
+            <th class="col-3">Chính xác
+              <div>
+                <label><input type="checkbox" value="3"></label>
+                <label><input type="checkbox" value="3" class="checkbox2"></label>
+              </div>
+            </th>
+          </tr>
+          <tr class="d-flex center">
+            <th class="col-3">Kiên quyết
+              <div>
+                <label><input type="checkbox" value="0"></label>
+                <label><input type="checkbox" value="0" class="checkbox2"></label>
+              </div>
+            </th>
+            <th class="col-3">Thuyết phục
+              <div>
+                <label><input type="checkbox" value="1"></label>
+                <label><input type="checkbox" value="1" class="checkbox2"></label>
+              </div>
+            </th>
+            <th class="col-3">Giỏi lắng nghe
+              <div>
+                <label><input type="checkbox" value="2"></label>
+                <label><input type="checkbox" value="2" class="checkbox2"></label>
+              </div>
+            </th>
+            <th class="col-3">Chi tiết
+              <div>
+                <label><input type="checkbox" value="3"></label>
+                <label><input type="checkbox" value="3" class="checkbox2"></label>
+              </div>
+            </th>
+          </tr>
+          <tr class="d-flex center">
+            <th class="col-3">Ganh đua
+              <div>
+                <label><input type="checkbox" value="0"></label>
+                <label><input type="checkbox" value="0" class="checkbox2"></label>
+              </div>
+            </th>
+            <th class="col-3">Sáng tạo
+              <div>
+                <label><input type="checkbox" value="1"></label>
+                <label><input type="checkbox" value="1" class="checkbox2"></label>
+              </div>
+            </th>
+            <th class="col-3">Kiềm chế
+              <div>
+                <label><input type="checkbox" value="2"></label>
+                <label><input type="checkbox" value="2" class="checkbox2"></label>
+              </div>
+            </th>
+            <th class="col-3">Cầu toàn
+              <div>
+                <label><input type="checkbox" value="3"></label>
+                <label><input type="checkbox" value="3" class="checkbox2"></label>
+              </div>
+            </th>
+          </tr><tr class="d-flex center">
+            <th class="col-3">Mạo hiểm
+              <div>
+                <label><input type="checkbox" value="0"></label>
+                <label><input type="checkbox" value="0" class="checkbox2"></label>
+              </div>
+            </th>
+            <th class="col-3">Hoạt ngôn
+              <div>
+                <label><input type="checkbox" value="1"></label>
+                <label><input type="checkbox" value="1" class="checkbox2"></label>
+              </div>
+            </th>
+            <th class="col-3">Nhất quán
+              <div>
+                <label><input type="checkbox" value="2"></label>
+                <label><input type="checkbox" value="2" class="checkbox2"></label>
+              </div>
+            </th>
+            <th class="col-3">Chu đáo
+              <div>
+                <label><input type="checkbox" value="3"></label>
+                <label><input type="checkbox" value="3" class="checkbox2"></label>
+              </div>
+            </th>
+          </tr><tr class="d-flex center">
+            <th class="col-3">Nóng vội
+              <div>
+                <label><input type="checkbox" value="0"></label>
+                <label><input type="checkbox" value="0" class="checkbox2"></label>
+              </div>
+            </th>
+            <th class="col-3">Biết quan tâm
+              <div>
+                <label><input type="checkbox" value="1"></label>
+                <label><input type="checkbox" value="1" class="checkbox2"></label>
+              </div>
+            </th>
+            <th class="col-3">Khoan dung
+              <div>
+                <label><input type="checkbox" value="2"></label>
+                <label><input type="checkbox" value="2" class="checkbox2"></label>
+              </div>
+            </th>
+            <th class="col-3">Tự trọng
+              <div>
+                <label><input type="checkbox" value="3"></label>
+                <label><input type="checkbox" value="3" class="checkbox2"></label>
+              </div>
+            </th>
+          </tr><tr class="d-flex center">
+            <th class="col-3">Độc lập
+              <div>
+                <label><input type="checkbox" value="0"></label>
+                <label><input type="checkbox" value="0" class="checkbox2"></label>
+              </div>
+            </th>
+            <th class="col-3">Hướng ngoại
+              <div>
+                <label><input type="checkbox" value="1"></label>
+                <label><input type="checkbox" value="1" class="checkbox2"></label>
+              </div>
+            </th>
+            <th class="col-3">Né tránh xung đột
+              <div>
+                <label><input type="checkbox" value="2"></label>
+                <label><input type="checkbox" value="2" class="checkbox2"></label>
+              </div>
+            </th>
+            <th class="col-3">Nhạy cảm
+              <div>
+                <label><input type="checkbox" value="3"></label>
+                <label><input type="checkbox" value="3" class="checkbox2"></label>
+              </div>
+            </th>
+          </tr><tr class="d-flex center">
+            <th class="col-3">Hướng đến mục tiêu
+              <div>
+                <label><input type="checkbox" value="0"></label>
+                <label><input type="checkbox" value="0" class="checkbox2"></label>
+              </div>
+            </th>
+            <th class="col-3">Nổi bật
+              <div>
+                <label><input type="checkbox" value="1"></label>
+                <label><input type="checkbox" value="1" class="checkbox2"></label>
+              </div>
+            </th>
+            <th class="col-3">Ghét thay đổi
+              <div>
+                <label><input type="checkbox" value="2"></label>
+                <label><input type="checkbox" value="2" class="checkbox2"></label>
+              </div>
+            </th>
+            <th class="col-3">Tò mò
+              <div>
+                <label><input type="checkbox" value="3"></label>
+                <label><input type="checkbox" value="3" class="checkbox2"></label>
+              </div>
+            </th>
+          </tr><tr class="d-flex center">
+            <th class="col-3">Vị kỷ
+              <div>
+                <label><input type="checkbox" value="0"></label>
+                <label><input type="checkbox" value="0" class="checkbox2"></label>
+              </div>
+            </th>
+            <th class="col-3">Sôi nổi
+              <div>
+                <label><input type="checkbox" value="1"></label>
+                <label><input type="checkbox" value="1" class="checkbox2"></label>
+              </div>
+            </th>
+            <th class="col-3">Vô lo
+              <div>
+                <label><input type="checkbox" value="2"></label>
+                <label><input type="checkbox" value="2" class="checkbox2"></label>
+              </div>
+            </th>
+            <th class="col-3">Cẩn thận
+              <div>
+                <label><input type="checkbox" value="3"></label>
+                <label><input type="checkbox" value="3" class="checkbox2"></label>
+              </div>
+            </th>
+          </tr><tr class="d-flex center">
+            <th class="col-3">Hung hăng
+              <div>
+                <label><input type="checkbox" value="0"></label>
+                <label><input type="checkbox" value="0" class="checkbox2"></label>
+              </div>
+            </th>
+            <th class="col-3">Đáng tin
+              <div>
+                <label><input type="checkbox" value="1"></label>
+                <label><input type="checkbox" value="1" class="checkbox2"></label>
+              </div>
+            </th>
+            <th class="col-3">Có kế hoạch
+              <div>
+                <label><input type="checkbox" value="2"></label>
+                <label><input type="checkbox" value="2" class="checkbox2"></label>
+              </div>
+            </th>
+            <th class="col-3">Hay gây rắc rối
+              <div>
+                <label><input type="checkbox" value="3"></label>
+                <label><input type="checkbox" value="3" class="checkbox2"></label>
+              </div>
+            </th>
+          </tr>
+        </tbody>
+      </table>
+      <div class="text-center">
+        <button type="button" name="button" class="btn btn-lg btn-primary">Nộp bài</button>
+      </div>
+    </div>
+    <div class="0">
+      <h3>Dominance – Người quyền lực</h3>
+      <p>Chỉ đạo, sáng tạo, kiên gan, giỏi giải quyết vấn đề, hướng đến kết quả, tự giác, tự đề cao, thiếu kiên nhẫn, thích kiểm soát, gây ấy tượng đầu tiên mạnh mẽ, biểu đạt nhanh chóng.</p>
+    </div>
+    <div class="1">
+      <h3>Influence – Người ảnh hưởng</h3>
+      <p>Duyên dáng, tự tin, thuyết phục, nhiệt tình, đầy cảm hứng, lạc quan, có sức thuyết phục, bốc đồng, nhiều cảm xúc, thân thiện và hoạt bát.</p>
+    </div>
+    <div class="2">
+      <h3>Steadiness – Người trầm tĩnh</h3>
+      <p>Tận tâm, lịch sự, ngoại giao, tiêu chuẩn cao, trưởng thành, kiên nhẫn, chính xác, nói năng chậm rãi, hành động có chủ ý, đi vào chi tiết, tìm kiếm sự thật, hành động chủ ý, hay nghi ngờ.</p>
+    </div>
+    <div class="3">
+      <h3>Compliance – Người tuân thủ</h3>
+      <p>Hòa nhã, vô tư, giỏi lắng nghe, kiên nhẫn, chân thành, ổn định, thận trọng, thích đi đó đây, giọng điệu đều đều.</p>
+    </div>
+  </div>
+
+</body>
+<%- include("partials/footer") -%>
+</html>

@@ -1,0 +1,583 @@
+<%- include("partials/header") -%>
+  <script>
+    $(document).ready(function() {
+      $("footer").css("margin-top", "5%");
+      for (let i = 0; i < 6; i++)
+        $("." + String.fromCharCode(i + 65)).hide();
+      $(".btn").click(function() {
+        $("footer").css("margin-top", "50%");
+        $(".questions").hide();
+        var countChoice = [0, 0, 0, 0, 0, 0];
+        var sum = 0;
+        $("input").each(function(i) {
+          if ($(this).is(":checked"))
+            // countChoice[$(this).parent().text().charCodeAt(0) - 65]++;
+            countChoice[$(this).val()]++;
+        });
+        var max = countChoice[0];
+        var index = 0;
+        for (let i = 1; i < 6; i++)
+          if (max < countChoice[i]) {
+            max = countChoice[i];
+            index = i;
+          }
+        $("." + String.fromCharCode(index + 65)).show();
+      });
+    });
+  </script>
+</head>
+
+<body>
+  <%- include("partials/navbar") -%>
+  <div class="content">
+    <div class="questions">
+      <h3 class="phase">Trắc nghiệp về sở thích nghề nghiệp dành cho học sinh phổ thông: Theo nhóm tác giả của “Hướng nghiệp học đường”. Bài trắc nghiệm này nhằm mục đích định hướng cho người làm các nghề nghiệp theo sở thích phù hợp với bản thân.
+      </h3>
+
+      <ul>
+        <p>Cách thức làm Trắc nghiệm nghề nghiệp:</p>
+        <li>Em hãy chọn cho mình một nghề mà em thích nhất trong mỗi câu. Bắt buộc mỗi câu em chỉ được chọn một nghề duy nhất và đánh dấu vào các ô thích hợp</li>
+        <li>Mỗi câu chỉ được khoanh vào một chữ cái đứng đầu câu nghề mà em lựa chọn (đáp án duy nhất)</li>
+      </ul>
+      <form>
+        <h3>Câu 1:</h3>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="0"> A. Giảng dạy bậc trung học</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="1"> B. Lãnh đạo xí nghiệp, công nghiệp</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="2"> C. Nghiên cứu khoa học</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="3"> D. Hoạ sĩ</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="4"> E. Thủ công mỹ nghệ</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="5"> F. Kế toán truởng</label>
+        </div>
+      </form>
+      <form>
+        <h3>Câu 2:</h3>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="0"> A. Cứu trợ xã hội</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="1"> B. Tổ chức nhân sự</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="2"> C. Thám tử, trinh sát</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="3"> D. Nhà văn, nhà báo</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="4"> E. Kĩ sư cơ khí chế tạo máy</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="5"> F. Thư kí văn phòng</label>
+        </div>
+      </form>
+
+      <form>
+        <h3>Câu 3:</h3>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="0"> A. Giáo viên trường khuyết tật</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="1"> B. Giám đốc nhà máy chế biến thực phẩm </label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="2"> C. Nhà động vật học</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="3"> D. Biên tập viên</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="4"> E. Kĩ sư nông nghiệp</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="5"> F. Nhân viên thuế vụ</label>
+        </div>
+      </form>
+      <form>
+        <h3>Câu 4:</h3>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="0"> A. Nhà tư vấn giáo dục tâm lí</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="1"> B. Thanh tra hải quan</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="2"> C. Nhà sinh học</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="3"> D. Người viết quảng cáo</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="4"> E. Chăn nuôi động vật</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="5"> F. Chuyên viên kiểm toán</label>
+        </div>
+      </form>
+      <form>
+        <h3>Câu 5:</h3>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="0"> A. Huấn luyện viên thể thao</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="1"> B. Thẩm phán</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="2"> C. Chuyên viên tâm lí khách hàng</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="3"> D. Đạo diễn phim</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="4"> E. Đầu bếp nhà hàng</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="5"> F. Nhân viên khách sạn</label>
+        </div>
+      </form>
+      <form>
+        <h3>Câu 6:</h3>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="0"> A. Cán bộ Đoàn, Đội</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="1"> B. Nhà thiên văn</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="2"> C. Môi giới nhà đất</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="3"> D. Giảng viên âm nhạc</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="4"> E. Kĩ sư kiểm phẩm</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="5"> F. Thủ quỹ ngân hàng</label>
+        </div>
+      </form>
+      <form>
+        <h3>Câu 7:</h3>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="0"> A. Cán sự xã hội</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="1"> B. Chuyên viên phòng thí nghiệm</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="2"> C. Đại lí du lịch</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="3"> D. Biên tập viên truyền hình</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="4"> E. Giám đốc kĩ thuật nhà máy</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="5"> F. Thư kí tổng hợp</label>
+        </div>
+      </form>
+      <form>
+        <h3>Câu 8:</h3>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="0"> A. Chuyên viên vật lí trị liệu</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="1"> B. Dược sĩ</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="2"> C. Luật sư bào chữa</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="3"> D. Diễn viên sân khấu hài</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="4"> E. Tài xế xe tải</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="5"> F. Kế toán lao động tiền lương</label>
+        </div>
+      </form>
+      <form>
+        <h3>Câu 9:</h3>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="0"> A. Người chăm sóc trẻ em đường phố</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="1"> B. Người kiểm tra thực phẩm công nghiệp</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="2"> C. Người gây quỹ tín dụng</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="3"> D. Người viết tiểu sử nhân vật chính trị</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="4"> E. Người sửa tivi, radio kĩ thuật số</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="5"> F. Nhân viên điều vận tàu điện ngầm</label>
+        </div>
+      </form>
+      <form>
+        <h3>Câu 10:</h3>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="0"> A. Người phụ trách chương trình khuyến nông</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="1"> B. Người phụ trách quan hệ công chúng</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="2"> C. Người phân tích tài chính phát triển</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="3"> D. Người sáng tác văn chương</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="4"> E. Người sửa chữa máy công cụ</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="5"> F. Người hướng dẫn đặt vé máy bay tại đại lí</label>
+        </div>
+      </form>
+      <form>
+        <h3>Câu 11:</h3>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="0"> A. Nha sĩ, y sĩ</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="1"> B. Chủ doanh nghiệp bán xe ôtô</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="2"> C. Nhà hóa học ứng dụng hiện đại</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="3"> D. Phát thanh viên đài truyền hình</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="4"> E. Chủ trại chăn nuôi</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="5"> F. Cán bộ bưu chính viễn thông</label>
+        </div>
+      </form>
+      <form>
+        <h3>Câu 12:</h3>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="0"> A. Cán sự điều dưỡng</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="1"> B. Ông bầu dịch vụ giải trí</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="2"> C. Bác sĩ nhi khoa</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="3"> D. Diễn viên múa</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="4"> E. Người làm vườn ở trang trại</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="5"> F. Chuyên viên lưu trữ và xử lí hồ sơ y khoa</label>
+        </div>
+      </form>
+      <form>
+        <h3>Câu 13:</h3>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="0"> A. Nhân viên phục vụ</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="1"> B. Thư viên, đại lí tàu biển</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="2"> C. Giáo viên sau đại học</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="3"> D. Nghệ sĩ đàn dương cầm</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="4"> E. Kĩ sư vận hành</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="5"> F. Nhân viên kiểm soát lưu thông</label>
+        </div>
+      </form>
+      <form>
+        <h3>Câu 14:</h3>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="0"> A. Hiệu trưởng trường lao động và bảo trợ xã hội</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="1"> B. Chuyên viên trang điểm</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="2"> C. Giáo viên khoa học tự nhiên</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="3"> D. Kĩ thuật viên phần mềm vi tính</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="4"> E. Người huấn luyện võ thuật</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="5"> F. Người phỏng vấn để cho vay</label>
+        </div>
+      </form>
+      <form>
+        <h3>Câu 15:</h3>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="0"> A. Chuyên gia tư vấn nghề nghiệp</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="1"> B. Tiếp viên hàng không</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="2"> C. Nhà toán học</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="3"> D. Người giới thiệu đĩa hát</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="4"> E. Chuyên viên sửa chữa cao ốc</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="5"> F. Cán bộ tuyên truyền thông tin văn hoá</label>
+        </div>
+      </form>
+      <form>
+        <h3>Câu 16:</h3>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="0"> A. Trưởng đoàn cứu trợ bão lụt</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="1"> B. Trọng tài kinh tế</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="2"> C. Bác sĩ đa khoa</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="3"> D. Kĩ thuật viên đồ hoạ</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="4"> E. Phi công vũ trụ</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="5"> F. Nhân viên kiểm tra và thu tiền bảo hiểm</label>
+        </div>
+      </form>
+      <form>
+        <h3>Câu 17:</h3>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="0"> A. Chuyên viên hướng dẫn vật lí trị liệu</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="1"> B. Chủ vựa thu mua nông sản</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="2"> C. Chuyên viên cao cấp kĩ thuật phẫu thuật</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="3"> D. Chuyên viên lưu trữ</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="4"> E. Kĩ thuật viên đồ hoạ</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="5"> F. Thư kí hành chính công ty dầu khí</label>
+        </div>
+      </form>
+      <form>
+        <h3>Câu 18:</h3>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="0"> A. Chuyên gia dinh dưỡng</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="1"> B. Tổ trưởng tổ pha chế rượu nhà hàng</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="2"> C. Giảng viên đại học cộng đồng</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="3"> D. Nghệ sĩ phụ trách dàn nhạc sống</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="4"> E. Trưởng phòng tín dụng ngân hàng công thương</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="5"> F. Cán bộ tổng đài bưu chính viễn thông</label>
+        </div>
+      </form>
+      <form>
+        <h3>Câu 19:</h3>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="0"> A. Y tá tình nguyện chăm sóc sức khỏe vùng sâu, vùng xa</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="1"> B. Đại lí tàu biển</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="2"> C. Chuyên gia gây mê BV liên doanh nước ngoài</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="3"> D. Nhà phê bình nghệ thuật</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="4"> E. Kĩ sư nông nghiệp phụ trách vườn ươm</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="5"> F. Tiếp tân và trực điện thoại công ty quốc tế</label>
+        </div>
+      </form>
+      <form>
+        <h3>Câu 20:</h3>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="0"> A. Phục vụ tâm lí trị liệu bệnh viện tâm thần</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="1"> B. Trợ lí giám đốc các vấn đề pháp luật</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="2"> C. Nhà nghiên cứu bệnh cây trồng</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="3"> D. Nhạc sĩ sử dụng các nhạc cụ dân tộc</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="4"> E. Người huấn luyện chó săn</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="5"> F. Kế toán</label>
+        </div>
+      </form>
+      <form>
+        <h3>Câu 21:</h3>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="0"> A. Vận động viên đua môtô</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="1"> B. Giám đốc kinh doanh</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="2"> C. Kĩ sư – Tiến sĩ hoá học</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="3"> D. Đạo diễn âm nhạc</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="4"> E. Thuyền trưởng tàu sông</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="5"> F. Nhân viên bảo hiểm nhân thọ</label>
+        </div>
+      </form>
+      <form>
+        <h3>Câu 22:</h3>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="0"> A. Nhà kinh tế học hỗ trợ kinh tế gia đình</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="1"> B. Người khai hoang lập nghiệp vùng cao, vùng sâu</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="2"> C. Nhà địa lí địa cầu</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="3"> D. Chuyên viên thiết kế thời trang dân tộc</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="4"> E. Thợ sửa chữa hệ thống lạnh</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="5"> F. Cán bộ xử lí hồ sơ tuyển dụng</label>
+        </div>
+      </form>
+      <form>
+        <h3>Câu 23:</h3>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="0"> A. Chuyên gia huấn luyện công tác phát triển cộng đồng</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="1"> B. Người kinh doanh hàng mỹ nghệ xuất khẩu</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="2"> C. Chuyên gia phân tích môi trường</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="3"> D. Nhà soạn nhạc hoà tấu</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="4"> E. Thợ làm khuôn mẫu</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="5"> F. Tiếp viên công ty máy tính xuyên quốc gia</label>
+        </div>
+      </form>
+      <form>
+        <h3>Câu 24:</h3>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="0"> A. Giáo viên dạy nghề lao động hợp tác nước ngoài</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="1"> B. Quản lí trung tâm dịch vụ giáo dục và sức khỏe</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="2"> C. Chuyên viên khí tượng học</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="3"> D. Nhà thiết kế quang cảnh</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="4"> E. Điều khiển nhà máy xử lí nước uống</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="5"> F. Đại lí đặt vé máy bay quốc tế</label>
+        </div>
+      </form>
+      <form>
+        <h3>Câu 25:</h3>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="0"> A. Cán bộ khuyến nông cây ăn trái nhiệt đới</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="1"> B. Quản lí bệnh viện tâm thần</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="2"> C. Nhà nghiên cứu địa chất</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="3"> D. Chuyên viên sân khấu ca nhạc</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="4"> E. Điều khiển trạm bơm gas</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="5"> F. Thu ngân viên ngân sách</label>
+        </div>
+      </form>
+      <div class="text-center">
+      <button type="button" name="button" class="btn btn-lg btn-primary">Nộp bài</button>
+      </div>
+    </div>
+    <p class="A">Nếu là cột A thì em có sở thích thuộc nhóm xã hội</p>
+    <p class="B">Nếu là cột B thì em có sở thích thuộc nhóm quản lí</p>
+    <p class="C">Nếu là cột C thì em có sở thích thuộc nhóm nghiên cứu</p>
+    <p class="D">Nếu là cột D thì em có sở thích thuộc nhóm nghệ thuật</p>
+    <p class="E">Nếu là cột E thì em có sở thích thuộc nhóm kĩ thuật</p>
+    <p class="F">Nếu là cột F thì em có sở thích thuộc nhóm nghiệp vụ</p>
+
+
+  </div>
+</body>
+<%- include("partials/footer") -%>
+</html>

@@ -1,0 +1,131 @@
+<%- include("partials/header") -%>
+  <script>
+    $(document).ready(function() {
+      $("footer").css("margin-top", "5%");
+      $(".AC").hide();
+      $(".AD").hide();
+      $(".BC").hide();
+      $(".BD").hide();
+      for (let i = 0; i < 6; i++)
+        $(".Type" + String.fromCharCode(i + 65)).hide();
+      $(".btn").click(function() {
+        $("footer").css("margin-top", "50%");
+        var result = "";
+        $("select").each(function(i) {
+          result += $(this).children("option:selected").val();
+        });
+        $(".questions").hide();
+        $("." + result).show();
+      });
+    });
+  </script>
+</head>
+
+<body>
+  <%- include("partials/navbar") -%>
+  <div class="content">
+    <div class="questions">
+      <h3 class="phase">Trắc nghiệm John Holland: Tác giả: Phoenix Ho, Khuong Le, Uyen Dang. Dựa trên mô hình của tiến sỹ tâm lý John Holland (người Mỹ):
+        Trắc nghiệm Holland (hay còn gọi là trắc nghiệm sở thích Holland) được phát triển bởi tiến sĩ tâm lý học người Mỹ – John Holland.
+        Tại Việt Nam, bài trắc nghiệm này còn khá mới nhưng cũng đang được áp dụng rộng rãi trong công tác hướng nghiệp.</h3>
+      <h4 class="phase">Các ý liệt kê trong mỗi bảng hướng đến các tố chất và năng lực cá nhân. Với mỗi ý sẽ có nhiều mức độ phù hợp, tương ứng với mỗi mức độ phù hợp,
+        sẽ được quy định một điểm số tương ứng. Điểm số tương ứng này do người làm trắc nghiệm đánh giá và tự cho điểm theo quy ước sau.</h4>
+      <ul>
+        <li>Bạn thấy ý đó chưa bao giờ đúng với bạn – tương ứng 0 đ</li>
+        <li>Chỉ thấy ý đó chỉ đúng trong một vài trường hợp – tương ứng 1 đ</li>
+        <li>Bạn thấy ý đó chỉ một nửa là đúng với bạn – tương ứng 2 đ</li>
+        <li>Bạn thấy ý đó gần như là đúng với bạn trong hầu hết mọi trường hợp, chỉ có một vài trường hợp là chưa đúng lắm – tương ứng 3đ</li>
+        <li>Bạn thấy ý đó là hoàn toàn đúng với bạn, không thể nào khác đi được – tương ứng 4 đ</li>
+      </ul>
+      <table class="table">
+        <thead class="thead-light">
+          <tr class="d-flex">
+            <th class="col-9" scope="col">Câu hỏi</th>
+            <th class="col-3" scope="col">Lựa chọn</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="d-flex">
+            <td class="col-9"><strong>Bước 1: Xác định tiêu chí đầu tiên - Chủ động / Bị động</strong><br>
+              Hãy để ý xem đối tượng là người chủ động nói lên ý kiến của mình hay phải đợi ta hỏi mới bắt đầu nói. Hoặc trong câu chuyện, liệu người đó chủ động dẫn dắt câu chuyện hay chỉ trả lời ngắn gọn rồi thôi. Không chỉ việc nói chuyện, bạn có
+              thể để ý đến tốc độ và độ chủ động của những công việc khác mà đối tượng làm để từ đó phán đoán. Ngoài ra, còn có thể dựa vào những cử chỉ hành động của đối phương mà phán đoán ( giả dụ như nếu một người thường xuyên có khuynh hướng ngồi
+              khép chân lại, hoặc ngồi vắt chân chữ ngũ thì theo nhân tướng học hành vi ta có thể phỏng đoán đây là một người có xu hướng nội tâm, hay còn được nói là khá bị động trong giao tiếp)
+            </td>
+            <td class="col-3">
+              <div class="form-group">
+                <select class="form-control" id="sel1">
+                  <option value="A">Chủ động</option>
+                  <option value="B">Bị động</option>
+                </select>
+              </div>
+            </td>
+          </tr>
+          <tr class="d-flex">
+            <td class="col-9"><strong>Bước 2: Xác định tiêu chí thứ hai - Hướng về công việc / Hướng về con người</strong><br>
+              Những người có kiến thức chuyên môn tốt, có khả năng phân tích dữ liệu cứng nhắc một cách hợp lý, logic, thường có xu hướng dùng lý trí để xử lý mọi việc là điển hình của người có thiên hướng về công việc.
+              Ngược lại, người có thiên hướng về con người lại thường có tính cách hài hòa, trang nhã, rất dễ gần khi tiếp xúc. Họ không quá giỏi trong việc phân tích sổ sách hay đưa ra những quyết định quan trọng nhưng bù lại rất quan tâm đến suy nghĩ
+              người khác. Bên cạnh đó họ cũng dễ bị cảm xúc chi phối hơn.
+              Bạn hoàn toàn có thể đặt ra tình huống và xem liệu người này có bị cảm xúc chi phối quá nhiều khi quyết định không.
+            </td>
+            <td class="col-3">
+              <div class="form-group">
+                <select class="form-control" id="sel1">
+                  <option value="C">Hướng về công việc</option>
+                  <option value="D">Hướng về con người</option>
+                </select>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="text-center">
+        <button type="button" name="button" class="btn btn-lg btn-primary">Nộp bài</button>
+      </div>
+    </div>
+    <div class="AC">
+      <h3>Nhóm D - Dominance</h3>
+      <p>• Cho người nhóm D thấy họ là số 1 (hoặc cách để trở thành số 1). <br>
+        • Không nên quá chi li trong công việc, chỉ cho họ tinh thần cũng như mục tiêu làm việc. <br>
+        • Mọi thứ phát sinh đều cần có lý do hợp lý của nó. <br>
+        • Luôn dành những lời khen cho họ. <br>
+        • Trao họ quyền hạn nhất định (nên là quyền lãnh đạo hoặc tự chủ). <br>
+        • Thường xuyên tạo những thay đổi mới trong môi trường làm việc và để họ giải quyết các vấn đề mới. <br>
+        • Không nên đấu khẩu hay tranh luận quá nhiều với họ, thay vào đó, cách làm hiệu quả hơn sẽ là chỉ cho họ thấy những điểm phản logic trong quan điểm và để họ tự suy nghĩ.
+      </p>
+    </div>
+    <div class="AD">
+      <h3>Nhóm I - Influences</h3>
+      <p>• Luôn tỏ ra tích cực và ủng hộ các ý kiến của họ. <br>
+        • Quan tâm đến cảm xúc của họ. <br>
+        • Cho thấy không chỉ sự quan tâm mà còn sự khâm phục trước tài năng của họ. <br>
+        • Không nên quá chi li trong công việc. <br>
+        • Tránh các công việc lặp lại. <br>
+        • Khen thưởng cá nhân thường xuyên với những người thuộc nhóm I. <br>
+        • Cảm xúc của họ thay đổi rất là nhanh nên nếu có vấn đề gì xảy ra thì cần phải làm cho cảm xúc của họ ổn định lại hoặc biến dổi tích cực hơn trước khi chỉ lỗi.
+      </p>
+    </div>
+    <div class="BD">
+      <h3>Nhóm S - Steadiness</h3>
+      <p>• Mọi vấn đề bạn muốn bàn bạc hoặc giao cho họ cần có lý do cụ thể. <br>
+        • Cung cấp dữ liệu và bằng chứng sẽ giúp họ làm việc đảm bảo và nhanh chóng hơn.
+        • Người nhóm S khá ngại rủi ro nên khi bắt đầu một dự án cần đảm bảo với họ rằng cách làm của bạn đã hạn chế rủi ro nhất có thể. <br>
+        • Không nên phản ứng quá gay gắt với người nhóm S. <br>
+        • Quan tâm đến người nhóm S theo cách chân thành và ngưỡng mộ sự kiên trì của họ. <br>
+        • Nhóm người này thường sẽ là những thành viên cốt cán trong công ty vì đây là một nhóm người có xu hướng thích ổn định.
+      </p>
+    </div>
+    <div class="BC">
+      <h3>Nhóm C - Compliance</h3>
+      <p>• Khi đưa ra và đề xuất ý kiến cần giải thích cặn kẽ. Nhóm C không thích sự qua loa và thiếu Logic. <br>
+        • Đưa những dữ liệu phân tích chi tiết nhất để đảm bảo người nhóm C sẽ làm được tốt nhất. <br>
+        • Dành thời gian cho người nhóm C suy nghĩ & phản biện vì họ thích nhìn sâu vào vấn đề và việc này sẽ cần chút thời gian. <br>
+        • Nhóm C không phải mẫu người vội vã.
+        • Không nên phản ứng quá gay gắt với người nhóm C. <br>
+        • Cẩn trọng hỏi về những thứ bạn cần họ giải thích. <br>
+        • Nhóm này thướng xuyên có xu hướng tuân thủ mọi việc, làm việc ngăn nắp và có logic.
+      </p>
+    </div>
+  </div>
+</body>
+<%- include("partials/footer") -%>
+</html>

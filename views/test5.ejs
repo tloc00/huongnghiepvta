@@ -1,0 +1,817 @@
+<%- include("partials/header") -%>
+  <script>
+    $(document).ready(function() {
+      $("footer").css("margin-top", "5%");
+      var character = ["E", "I", "S", "N", "T", "F", "J", "P"];
+      character.forEach((item, i) => {
+        $("." + item).hide();
+      });
+
+      $(".btn").click(function() {
+        $("footer").css("margin-top", "5%");
+        $(".questions").hide();
+        class chars {
+          constructor(charac, sum) {
+            this.charac = charac;
+            this.sum = sum;
+          }
+
+        }
+        var countChoice = [];
+        var resultCharacter = [];
+        for (let i = 0; i < 14; i++)
+          countChoice.push(0);
+        var sum = 0;
+        $("input").each(function(i) {
+          if ($(this).is(":checked"))
+            countChoice[$(this).val() - 1]++;
+        });
+        resultCharacter.push(countChoice[0]);
+        resultCharacter.push(countChoice[1]);
+        resultCharacter.push(countChoice[2] + countChoice[4]);
+        resultCharacter.push(countChoice[3] + countChoice[5]);
+        resultCharacter.push(countChoice[6] + countChoice[8]);
+        resultCharacter.push(countChoice[7] + countChoice[9]);
+        resultCharacter.push(countChoice[10] + countChoice[12]);
+        resultCharacter.push(countChoice[11] + countChoice[13]);
+        for (let i = 0; i < resultCharacter.length; i += 2)
+          if (resultCharacter[i] >= resultCharacter[i + 1])
+              $("." + character[i]).show();
+          else
+            $("." + character[i + 1]).show();
+      });
+    });
+  </script>
+</head>
+
+<body>
+  <%- include("partials/navbar") -%>
+  <div class="content">
+    <div class="questions">
+      <h2 class="text-primary" style="text-align: center; margin: 3% 0;">Trắc nghiệm MBTI</h2>
+      <ul>
+        <li>Tác giả: Hai mẹ con nhà Briggs (người Mỹ)</li>
+        <li>Nội dung: Đây là một phương pháp sử dụng những câu hỏi nhằm kiểm tra tâm lí, tính cách của một người trên cơ sở đáp án mà người đó chọn đối với vấn đề được đặt ra. Trắc nghiệm tính cách MBTI đặc biệt nhấn mạnh vào sự khác biệt về mặt tự nhiên của từng
+          người dựa trên tứng câu trả lời của họ cho các câu hỏi để suy ra những cá tính, tính cách riêng biệt của từng người</li>
+      </ul>
+      <form>
+        <h3>Câu 1: Tại một buổi tiệc, bạn sẽ:</h3>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="1">a. Giao tiếp với nhiều người, kể cả người lạ</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="2">b. Chỉ giao tiếp với với một số ít người mà bạn đã quen</label>
+        </div>
+      </form>
+      <form>
+        <h3>Câu 2: Bạn thấy mình là người nghiêng về kiểu nào nhiều hơn?</h3>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="3">a. Thực tế</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="4">b. Sáng tạo</label>
+        </div>
+      </form>
+      <form>
+        <h3>Câu 3: Bạn nghĩ tình huống nào tồi tệ hơn?</h3>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="5">a. Đầu óc của bạn cứ bay bổng trên mây</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="6">b. Cuộc sống của bạn thật nhàm chán và không bao giờ thay đổi</label>
+        </div>
+      </form>
+      <form>
+        <h3>Câu 4: Bạn sẽ bị ấn tượng hơn với</h3>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="7">a. Các nguyên tắc</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="8">b. Những cảm xúc</label>
+        </div>
+      </form>
+      <form>
+        <h3>Câu 5: Khi quyết định việc gì đó, bạn thường hay dựa vào:</h3>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="9">a. Sự thuyết phục</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="10">b. Sự đồng cảm</label>
+        </div>
+      </form>
+      <form>
+        <h3>Câu 6: Bạn thích làm việc theo kiểu nào nhiều hơn?</h3>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="11">a. Theo đúng thời hạn</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="12">b. Tùy hứng</label>
+        </div>
+      </form>
+      <form>
+        <h3>Câu 7: Bạn có khuynh hướng đưa ra các lựa chọn</h3>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="13">a. Rất cẩn thận</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="14">b. Phần nào theo cảm nhận</label>
+        </div>
+      </form>
+      <form>
+        <h3>Câu 8: Tại các bữa tiệc, bạn thường:</h3>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="1">a. Ở lại tới cùng và cảm thấy càng lúc càng hào hứng</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="2">b. Ra về sớm vì cảm thấy mệt mỏi dần</label>
+        </div>
+      </form>
+      <form>
+        <h3>Câu 9: Kiểu người nào sẽ thu hút bạn hơn?</h3>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="3">a. Người thực tế và có lý lẽ</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="4">b. Người giàu trí tưởng tượng</label>
+        </div>
+      </form>
+      <form>
+        <h3>Câu 10: Điều nào khiến bạn thấy thích thú hơn?</h3>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="5">a. Những điều thực tế</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="6">b. Những ý tưởng khả thi</label>
+        </div>
+      </form>
+      <form>
+        <h3>Câu 11: Khi đánh giá hoặc phán xét người khác, bạn thường hay dựa vào điều gì?</h3>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="7">a. Luật lệ và nguyên tắc</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="8">b. Hoàn cảnh</label>
+        </div>
+      </form>
+      <form>
+        <h3>Câu 12: Khi tiếp cận, tiếp xúc người khác, bạn nghiêng về hướng nào hơn?</h3>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="9">a. Tiếp cận theo hướng khách quan</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="10">b. Tiếp cận theo hướng sử dụng trải nghiệm cá nhân</label>
+        </div>
+      </form>
+      <form>
+        <h3>Câu 13: Phong cách của bạn nghiêng về hướng nào hơn?</h3>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="11">a. Đúng giờ, nghiêm túc</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="12">b. Nhàn nhã, thoải mái</label>
+        </div>
+      </form>
+      <form>
+        <h3>Câu 14: Bạn cảm thấy không thoải mái khi có những việc:</h3>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="13">a. Chưa hoàn thiện</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="14">b. Đã quá hoàn thiện</label>
+        </div>
+      </form>
+      <form>
+        <h3>Câu 15: Trong các mối quan hệ xã hội, bạn thường</h3>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="1">a. Luôn nắm bắt kịp thời thông tin về các vấn đề của mọi người</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="2">b. Thường biết thông tin sau những người khác</label>
+        </div>
+      </form>
+      <form>
+        <h3>Câu 16: Với các công việc thông thường, bạn nghiêng về cách:</h3>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="3">a. Làm theo cách thông thường</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="4">b. Làm theo cách của riêng mình</label>
+        </div>
+      </form>
+      <form>
+        <h3>Câu 17: Các nhà văn nên:</h3>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="5">a. Viết những gì họ nghĩ và chân thật với những gì mình viết</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="6">b. Diễn đạt sự việc bằng cách so sánh hay liên tưởng</label>
+        </div>
+      </form>
+      <form>
+        <h3>Câu 18: Điều gì lôi cuốn bạn hơn?</h3>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="7">a. Tính nhất quán của tư duy, suy nghĩ</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="8">b. Sự hòa hợp trong các mối quan hệ của con người</label>
+        </div>
+      </form>
+      <form>
+        <h3>Câu 19: Bạn cảm thấy thoải mái hơn khi đưa ra:</h3>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="9">a. Những đánh giá, nhận xét một cách logic</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="10">b. Những đánh giá, nhận xét một cách có ý nghĩa</label>
+        </div>
+      </form>
+      <form>
+        <h3>Câu 20: Bạn thích những điều:</h3>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="11">a. Đã được sắp xếp, quyết định trước</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="12">b. Chưa xác định, chưa được quyết định</label>
+        </div>
+      </form>
+      <form>
+        <h3>Câu 21: Bạn tự thấy mình:</h3>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="13">a. Nghiêm túc, quyết đoán</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="14">b. Dễ gần, thoải mái</label>
+        </div>
+      </form>
+      <form>
+        <h3>Câu 22: Khi nói chuyện điện thoại, bạn:</h3>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="1">a. Cứ gọi bình thường</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="2">b. Chuẩn bị trước những điều sẽ nói</label>
+        </div>
+      </form>
+      <form>
+        <h3>Câu 23: Những sự kiện trong thực tế</h3>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="3">a. Bản thân nó giải thích cho chính nó”</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="4">b. Nó là bằng chứng giải thích cho các quy tắc, quy luật</label>
+        </div>
+      </form>
+      <form>
+        <h3>Câu 24: Những người có tầm nhìn xa/người lo xa.</h3>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="5">a. Thường gây khó chịu cho người khác</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="6">b. Khá thú vị</label>
+        </div>
+      </form>
+      <form>
+        <h3>Câu 25: Bạn thường là người</h3>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="7">a. Cái đầu lạnh</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="8">b. Trái tim nóng</label>
+        </div>
+      </form>
+      <form>
+        <h3>Câu 26: Điều nào thì tồi tệ hơn?</h3>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="9">a. Không công bằng</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="10">b. Tàn nhẫn</label>
+        </div>
+      </form>
+      <form>
+        <h3>Câu 27: Các sự kiện nên xảy ra theo hướng:</h3>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="11">a. Được lựa chọn và cân nhắc kỹ lưỡng</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="12">b. Ngẫu nhiên và tự nhiên</label>
+        </div>
+      </form>
+      <form>
+        <h3>Câu 28: Bạn cảm thấy thoải mái hơn khi</h3>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="13">a. Đã mua một thứ gì đó</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="14">b. Đang lựa chọn để mua</label>
+        </div>
+      </form>
+      <form>
+        <h3>Câu 29: Trong công ty, bạn là người:</h3>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="1">a. Khởi xướng các câu chuyện</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="2">b. Đợi người khác bắt chuyện với mình</label>
+        </div>
+      </form>
+      <form>
+        <h3>Câu 30: Đối với những quy ước, quy tắc thông thường trong xã hội, bạn:</h3>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="3">a. Ít khi nghi ngờ những điều này</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="4">b. Thường xem xét lại tính đúng đắn của những điều đó</label>
+        </div>
+      </form>
+      <form>
+        <h3>Câu 31: Trẻ em thường:</h3>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="5">a. Chưa cố gắng đủ</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="6">b. Chưa vui chơi đủ</label>
+        </div>
+      </form>
+      <form>
+        <h3>Câu 32: Khi đưa ra các quyết định, bạn sẽ thấy thoải mái hơn với</h3>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="7">a. Các tiêu chuẩn</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="8">b. Cảm xúc, cảm nhận</label>
+        </div>
+      </form>
+      <form>
+        <h3>Câu 33: Bạn nghiêng về tính cách nào hơn ?</h3>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="9">a. Cứng rắn</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="10">b. Nhẹ nhàng</label>
+        </div>
+      </form>
+      <form>
+        <h3>Câu 34: Theo bạn, khả năng nào đáng khâm phục hơn?</h3>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="11">a. Khả năng tổ chức và làm việc có phương pháp</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="12">b. Khả năng thích ứng và xoay xở trước mọi tình huống</label>
+        </div>
+      </form>
+      <form>
+        <h3>Câu 35: Bạn đề cao tố chất nào hơn?</h3>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="13">a. Sự chắc chắn</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="14">b. Sự cởi mở</label>
+        </div>
+      </form>
+      <form>
+        <h3>Câu 36: Khi phải tương tác với người khác ở các tình huống và vấn đề mới lạ, không thường gặp, bạn thường:</h3>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="1">a. Thấy phấn chấn và hào hứng</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="2">b. Cảm thấy mệt mỏi</label>
+        </div>
+      </form>
+      <form>
+        <h3>Câu 37: Thường thì bạn là:</h3>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="3">a. Người thực tế</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="4">b. Người có khả năng tưởng tượng phong phú</label>
+        </div>
+      </form>
+      <form>
+        <h3>Câu 38: Bạn thường có xu hướng:</h3>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="5">a. Xem người khác có thể làm được việc gì hữu ích</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="6">b. Xem người khác sẽ nghĩ và cảm nhận như thế nào</label>
+        </div>
+      </form>
+      <form>
+        <h3>Câu 39: Bạn cảm thấy thoải mái hơn khi:</h3>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="7">a. Thảo luận một vân đề kĩ lưỡng, triệt để</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="8">b. Đạt được thỏa thuận, sự nhất trí về vấn đề</label>
+        </div>
+      </form>
+      <form>
+        <h3>Câu 40: Cái đầu hay trái tim chi phối bạn nhiều hơn</h3>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="9">a. Cái đầu</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="10">b. Trái tim</label>
+        </div>
+      </form>
+      <form>
+        <h3>Câu 41: Bạn cảm thấy thoải mái hơn khi làm các công việc theo dạng</h3>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="11">a. Được giao trọn gói, làm xong hết rồi bàn giao</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="12">b. Công việc làm hàng ngày, theo lịch</label>
+        </div>
+      </form>
+      <form>
+        <h3>Câu 42: Bạn có xu hướng tìm kiếm những điều:</h3>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="13">a. Theo trật tự, thứ tự</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="14">b. Ngẫu nhiên</label>
+        </div>
+      </form>
+      <form>
+        <h3>Câu 43: Bạn thích kiểu nào hơn?</h3>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="1">a. Nhiều bạn bè ở mức độ xã giao</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="2">b. Một vài người bạn thân</label>
+        </div>
+      </form>
+      <form>
+        <h3>Câu 44: Bạn thường dựa vào:</h3>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="3">a. Sự kiện, thông tin thực tế</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="4">b. Nguyên lý, nguyên tắc</label>
+        </div>
+      </form>
+      <form>
+        <h3>Câu 45: Bạn hứng thú với việc gì hơn?</h3>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="5">a. Sản xuất và phân phối</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="6">b.Thiết kế và nghiên cứu</label>
+        </div>
+      </form>
+      <form>
+        <h3>Câu 46: Lời khen nào giá trị hơn?</h3>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="7">a. “Đó là một người có suy nghĩ rất logic”</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="8">b. “Đó là một người rất tình cảm, tinh tế”</label>
+        </div>
+      </form>
+      <form>
+        <h3>Câu 47: Bạn thích mình có tố chất nào hơn?</h3>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="9">a. Kiên định, vững vàng</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="10">b. Toàn tâm, cống hiến</label>
+        </div>
+      </form>
+      <form>
+        <h3>Câu 48: Bạn thường thích điều nào hơn?</h3>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="11">a. Một tuyên bố cuối cùng, không thay đổi</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="12">b. Một tuyên bố dự kiến, ban đầu</label>
+        </div>
+      </form>
+      <form>
+        <h3>Câu 49: Bạn thấy thoải mái hơn vào lúc:</h3>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="13">a. Trước khi đưa ra quyết định</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="14">b. Sau khi đưa ra quyết định</label>
+        </div>
+      </form>
+      <form>
+        <h3>Câu 50: Bạn có thấy mình:</h3>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="1">a. Dễ dàng bắt chuyện và kéo dài cuộc trò chuyện với người mới gặp</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="2">b. Khó mà trò chuyện nhiều với những người mới quen</label>
+        </div>
+      </form>
+      <form>
+        <h3>Câu 51: Bạn có xu hướng tin tưởng vào:</h3>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="3">a. Kinh nghiệm của mình</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="4">b. Linh cảm của mình</label>
+        </div>
+      </form>
+      <form>
+        <h3>Câu 52: Bạn cho rằng mình thuộc tuýp người nào hơn?</h3>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="5">a. Người thực tế</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="6">b. Người khôn khéo</label>
+        </div>
+      </form>
+      <form>
+        <h3>Câu 53: Theo bạn ai là người đáng được khen ngợi hơn?</h3>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="7">a. Một người giàu lý trí</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="8">b. Một người giàu cảm xúc</label>
+        </div>
+      </form>
+      <form>
+        <h3>Câu 54: Bạn có xu hướng hành xử:</h3>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="9">a. Công bằng, vô tư</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="10">b. Thông cảm, đồng cảm</label>
+        </div>
+      </form>
+      <form>
+        <h3>Câu 55: Bạn thích:</h3>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="11">a. Đảm bảo rằng mọi việc được chuẩn bị, thu xếp sẵn sàng</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="12">b. Để mọi việc diễn ra tự nhiên</label>
+        </div>
+      </form>
+      <form>
+        <h3>Câu 56: Trong các mối quan hệ thì mọi việc:</h3>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="13">a. Có thể thảo luận để giải quyết được</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="14">b. Diễn ra ngẫu nhiên và tùy theo điều kiện hoàn cảnh</label>
+        </div>
+      </form>
+      <form>
+        <h3>Câu 57: Khi chuông điện thoại reo, bạn sẽ:</h3>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="1">a. Là người đầu tiên nhấc máy</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="2">b. Hi vọng có người khác sẽ nhấc máy</label>
+        </div>
+      </form>
+      <form>
+        <h3>Câu 58: Bạn đánh giá cao điều gì trong mình hơn:</h3>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="3">a. Nhận thức tốt về các yếu tố thực tế</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="4">b. Có trí tưởng tượng phong phú, rực rỡ</label>
+        </div>
+      </form>
+      <form>
+        <h3>Câu 59: Bạn sẽ chú tâm hơn đến:</h3>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="5">a. Các nguyên tắc, nguyên lý cơ bản</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="6">b. Các ngụ ý, hàm ý, ẩn ý</label>
+        </div>
+      </form>
+      <form>
+        <h3>Câu 60: Điều gì có vẻ sẽ là một lỗi lớn hơn?</h3>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="7">a. Quá nồng nhiệt, thiết tha</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="8">b. Quá khách quan, thờ ơ</label>
+        </div>
+      </form>
+      <form>
+        <h3>Câu 61: Về cơ bản, bạn sẽ đánh giá mình là người thế nào?</h3>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="9">a. Thiết thực, ít bị chi phối bởi tình cảm</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="10">b. Từ tâm, đa cảm</label>
+        </div>
+      </form>
+      <form>
+        <h3>Câu 62: Tình huống nào sẽ lôi cuốn bạn hơn?</h3>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="11">a. Tình huống rõ ràng, có kế hoạch</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="12">b. Tình huống không xác định, không có kế hoạch</label>
+        </div>
+      </form>
+      <form>
+        <h3>Câu 63: Bạn là người có xu hướng nào hơn?</h3>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="13">a. Theo thói quen</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="14">b. Hay thay đổi</label>
+        </div>
+      </form>
+      <form>
+        <h3>Câu 64: Bạn có xu hướng nào hơn?</h3>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="1">a. Là người dễ tiếp cận</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="2">b. Ở mức độ nào đó là người kín đáo</label>
+        </div>
+      </form>
+      <form>
+        <h3>Câu 65: Khi viết, bạn thích:</h3>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="3">a. Viết theo hướng văn chương hơn</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="4">b. Viết theo số liệu, dữ liệu hơn</label>
+        </div>
+      </form>
+      <form>
+        <h3>Câu 66: Đối với bạn, điều gì khó thực hiện hơn?</h3>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="5">a. Hiểu và chia sẻ với người khác</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="6">b. Điều khiển người khác</label>
+        </div>
+      </form>
+      <form>
+        <h3>Câu 67: Bạn mong ước mình sẽ có thêm nhiều điều gì?</h3>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="7">a. Lí trí và khả năng nhận xét rõ ràng</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="8">b. Tình thương, lòng trắc ẩn sâu sắc</label>
+        </div>
+      </form>
+      <form>
+        <h3>Câu 68: Điều gì sẽ là lỗi lớn hơn?</h3>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="9">a. Hành động bừa bãi, không cân nhắc</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="10">b. Hành động chỉ trích, phê phán</label>
+        </div>
+      </form>
+      <form>
+        <h3>Câu 69: Bạn sẽ thích sự kiện nào hơn?</h3>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="11">a. Sự kiện có lên kế hoạch trước</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="12">b. Sự kiện không có kế hoạch trước</label>
+        </div>
+      </form>
+      <form>
+        <h3>Câu 70: Bạn thường có hành động:</h3>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="13">a. Cân nhắc thận trọng</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="14">b. Tự nhiên, tự phát</label>
+        </div>
+      </form>
+      <div class="text-center">
+        <button type="button" name="button" class="btn btn-lg btn-primary">Nộp bài</button>
+      </div>
+    </div>
+    <div class="E">
+      <h3>Các đặc điểm của nhóm Extraverted (Hướng Ngoại)</h3>
+      <ul>
+        <li>Hành động trước hết, suy nghĩ và cân nhắc sau</li>
+        <li>Cảm thấy khổ sở nếu bị cách ly với thế giới bên ngoài</li>
+        <li>Hứng thú với con người, sự việc xung quanh, thích đông vui, thích gặp gỡ, hoạt động</li>
+        <li>Quảng giao, thích tiếp xúc với nhiều người, dễ dàng tiếp xúc và thiết lập mối quan hệ mới</li>
+        <li>Thích thảo luận, làm việc nhóm</li>
+        <li>Thích nói hơn nghe</li>
+        <li>Làm nhiều việc cùng một lúc, dễ bị phân tâm</li>
+      </ul>
+      <p>Nếu đây là các đặc điểm của bạn thì chữ cái đầu tiên trong trắc nghiệm MBTI của bạn là E <br>
+        <strong>Phương pháp học tập thích hợp:</strong> Học nhóm, thảo luận, thực hành, tiếp xúc với thực tế, thiên nhiên. Hứng thú học tập phụ thuộc nhiều vào người dạy và bạn học.</p>
+    </div>
+    <div class="I">
+      <h3>Các đặc điểm của nhóm Introverted (Hướng Nội)</h3>
+      <ul>
+        <li>Suy nghĩ và cân nhắc kỹ lưỡng trước khi hành động</li>
+        <li>Cần có một khoảng thời gian riêng tư đáng kể để nạp năng lượng, thường tìm kiếm sự yên tĩnh</li>
+        <li>Hứng thú với đời sống nội tâm, đôi khi tự cô lập với thế giới bên ngoài</li>
+        <li>Thường khá cẩn thận khi thiết lập các mối quan hệ mới</li>
+        <li>Thích nói chuyện tay đôi</li>
+        <li>Thích nghe hơn nói</li>
+        <li>Không thích làm nhiều việc cùng lúc, tập trung</li>
+        <li>Thích tự thân vận động</li>
+      </ul>
+      <p>Nếu đây là các đặc điểm của bạn thì chữ cái đầu tiên trong trắc nghiệm MBTI của bạn là I <br>
+        <strong>Phương pháp học tập thích hợp:</strong> Tự học, thích tìm tòi, nghiên cứu, tập trung vào việc trước mắt. Thích những môn học cho phép học sinh phát huy khả năng làm việc độc lập, bày tỏ ý kiến cá nhân và khuyến khích học sinh tìm tòi
+        thêm tri thức. Hứng thú học tập chủ yếu là từ hứng thú của bản thân đối với môn học.</p>
+    </div>
+    <div class="S">
+      <h3>Các đặc điểm của nhóm Sensing (Giác quan)</h3>
+      <ul>
+        <li>Sống với hiện tại</li>
+        <li>Thích các giải pháp đơn giản và thực tế</li>
+        <li>Có trí nhớ tốt về các chi tiết của những sự kiện trong quá khứ, vận dụng 5 giác quan để mô tả sự việc</li>
+        <li>Giỏi áp dụng kinh nghiệm</li>
+        <li>Thích các thông tin rõ ràng, chắc chắn; không thích phỏng đoán hoặc những sự việc không rõ ràng</li>
+        <li>Ham học hỏi thông qua bắt chước, quan sát</li>
+        <li>Có khuynh hướng đi từ chi tiết đến khái quát</li>
+        <li>Tập trung vào kinh nghiệm thực tiễn</li>
+        <li>Có khuynh hướng đi theo phương pháp tiếp cận các vấn đề đã được công nhận, tìm hiểu từng bước</li>
+      </ul>
+      <p>Nếu đây là các đặc điểm của bạn thì chữ cái thứ 2 trong trắc nghiệm MBTI của bạn là S <br>
+        <strong>Phương pháp học tập thích hợp:</strong> Học qua thảo luận, học quan quan sát thực tế, vận dụng các giác quan, học theo trình tự, sử dụng não trái (trí nhớ, ngôn ngữ, phân tích,…)</p>
+    </div>
+    <div class="N">
+      <h3>Các đặc điểm của nhóm INtuition (Trực giác)</h3>
+      <ul>
+        <li>Hay nghĩ đến tương lai, thường triết lý</li>
+        <li>Sử dụng trí tưởng tượng, hay sáng tạo ra những khả năng mới</li>
+        <li>Thường chỉ nhớ đến ý chính và các mối liên hệ</li>
+        <li>Giỏi vận dụng lý thuyết</li>
+        <li>Thoải mái với sự nhập nhằng, hay thông tin không rõ ràng</li>
+        <li>Khát quát vấn đề, đi từ khái quát đến chi tiết, tiếp cận vấn đề từ rộng đến hẹp</li>
+        <li>Tập trung vào các khả năng có thể xảy ra trong tương lai</li>
+        <li>Sẵn sàng lao vào các phương pháp mới, thích tìm hiểu, học hỏi theo cảm nhận</li>
+        <li>Thích khái quát hóa, trừu tượng, liên tưởng</li>
+        <li>Tin tưởng vào trực giác</li>
+      </ul>
+      <p>Nếu đây là các đặc điểm của bạn thì chữ cái thứ 2 trong trắc nghiệm MBTI của bạn là N <br>
+        <strong>Phương pháp học tập thích hợp:</strong> Thích hợp với các môn học trừu tượng, tưởng tượng, tính khát quát cao. Học tập theo sự tự định hướng của cá nhân, thích những gì mới mẻ. Thường sử dụng não phải trong quá trình học tập (mindmap,
+        tưởng tượng, liên hệ…)</p>
+    </div>
+    <div class="T">
+      <h3>Các đặc điểm của nhóm Thinking (Lý trí)</h3>
+      <ul>
+        <li>Sự thật là trên hết, sự thật là điều quan trọng</li>
+        <li>Luôn sử dụng lý trí, tìm kiếm sự kiện và logic để đưa ra kết luận</li>
+        <li>Chú ý đến các nhiệm vụ, công việc cần phải hoàn thành</li>
+        <li>Đưa ra các phân tích phê phán và có mục đích một cách dễ dàng</li>
+        <li>Hay chất vấn người khác, nghiêm khắc</li>
+        <li>Dễ dàng nhận ra khuyết điểm của người khác</li>
+        <li>Tiếp xúc, giúp đỡ người khác khi cần thiết</li>
+        <li>Chấp nhận xung đột là một phần tự nhiên trong mối quan hệ giữa người với người</li>
+      </ul>
+      <p>Nếu đây là các đặc điểm của bạn thì chữ cái thứ 3 trong trắc nghiệm MBTI của bạn là T <br>
+        <strong>Phương pháp học tập thích hợp:</strong> Tận dụng tư duy logic trong quá trình học tập và ôn tập, học có hệ thống, theo trình tự.</p>
+    </div>
+    <div class="F">
+      <h3>Các đặc điểm của nhóm Feeling (Tình cảm)</h3>
+      <ul>
+        <li>Sống hài hòa là trên hết, tế nhị quan trọng hơn sự thật</li>
+        <li>Xem xét cảm giác cá nhân và ảnh hưởng đến người khác trước khi đưa ra quyết định, quyết định dựa trên cảm xúc, tình cảm</li>
+        <li>Nhạy cảm, dễ tổn thương</li>
+        <li>Một cách tự nhiên, dễ xúc động trước nhu cầu hay phản ứng của người khác</li>
+        <li>Dễ tán thành ý kiến của người khác, hay tán thưởng</li>
+        <li>Dễ nhận ra ưu điểm của người khác</li>
+        <li>Tiếp xúc, giúp đỡ người khác nhiệt tình</li>
+        <li>Tìm kiếm sự nhất trí hay ý kiến của đa số</li>
+        <li>Khó xử khi có xung đột</li>
+      </ul>
+      <p>Nếu đây là các đặc điểm của bạn thì chữ cái thứ 3 trong trắc nghiệm MBTI của bạn là F <br>
+        <strong>Phương pháp học tập thích hợp:</strong> Học nhóm, học gắn liền với cảm xúc (người dạy cần chú ý đến việc sủ dụng các công cụ dạy học đa phương tiện và khởi tạo cảm xúc tích cực cho học sinh trong quá trình dạy học), đặc biệt hứng thú
+        với các môn xã hội và nghệ thuật.</p>
+    </div>
+    <div class="J">
+      <h3>Các đặc điểm của nhóm Judging (Nguyên tắc)</h3>
+      <ul>
+        <li>Có kế hoạch chu đáo trước khi hành động</li>
+        <li>Tập trung vào các hoạt động có tính nhiệm vụ; hoàn tất các công đoạn quan trọng trước khi tiếp tục</li>
+        <li>Đúng giờ và đáng tin cậy</li>
+        <li>Làm việc tốt nhất và không bị stress khi vượt trước thời hạn</li>
+        <li>Tự đặt ra mục tiêu, thời hạn, và các thủ tục để quản lý cuộc sống</li>
+        <li>Thường làm những việc không thích trước để đẩy nó sang một bên</li>
+      </ul>
+      <p>Nếu đây là các đặc điểm của bạn thì chữ cái thứ 4 trong trắc nghiệm MBTI của bạn là J <br>
+        <strong>Phương pháp học tập thích hợp:</strong> Lập thời gian biểu học tập rõ ràng, đề ra mục tiêu và nhiệm vụ cụ thể trong quá trình học tập.</p>
+    </div>
+    <div class="P">
+      <h3>Các đặc điểm của nhóm Perceiving (Linh hoạt)</h3>
+      <ul>
+        <li>Có thể hành động mà không cần lập kế hoạch; lập kế hoạch tùy theo tình hình</li>
+        <li>Thích làm nhiều việc cùng lúc, không phân biệt giữa công việc và trò chơi</li>
+        <li>Chịu sức ép tốt, vẫn làm việc tốt khi sắp hết thời hạn</li>
+        <li>Tìm cách tránh né , trì hoãn cam kết nếu nó ảnh hưởng đến sự linh động, tự do và phong phú</li>
+        <li>Thích để mọi thứ đến tự nhiên</li>
+        <li>Thường lộn xộn và ít khi đúng giờ, thường không làm xong điều gì đó cho đến phút cuối cùng</li>
+      </ul>
+      <p>Nếu đây là các đặc điểm của bạn thì chữ cái thứ 4 trong trắc nghiệm MBTI của bạn là P <br>
+        <strong>Phương pháp học tập thích hợp:</strong> Tạo hứng thú đối với các môn học,kết hợp các môn học với nhau trong quá trình học tập để tạo ra sự phong phú và hứng thú. Cần đề ra mục tiêu chung cho từng môn học nhưng không bắt buộc phải lập
+        thời gian biểu quá cụ thể.</p>
+    </div>
+  </div>
+</body>
+<%- include("partials/footer") -%>
+</html>

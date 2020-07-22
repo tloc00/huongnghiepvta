@@ -1,0 +1,153 @@
+<%- include("partials/header") -%>
+  <script>
+    $(document).ready(function() {
+      $("footer").css("margin-top", "5%");
+      $(".6").hide();
+      $(".14").hide();
+      $(".20").hide();
+      $(".btn").click(function() {
+        $("footer").css("margin-top", "50%");
+        $(".questions").hide();
+        var countChoice = [0, 0, 0];
+        var sum = 0;
+        $("input").each(function(i) {
+          if ($(this).is(":checked"))
+            countChoice[$(this).val()]++;
+        });
+        var result = countChoice[0] + countChoice[1] * 2 + countChoice[2] * 3;
+        // alert(result);
+        if (result >= 20)
+          $(".20").show();
+        else if (result >= 14)
+          $(".14").show();
+        else
+          $(".6").show();
+      });
+    });
+  </script>
+</head>
+
+<body>
+  <%- include("partials/navbar") -%>
+  <div class="content">
+    <div class="questions">
+      <h2 class="text-primary" style="text-align: center; margin: 3% 0;">Trắc nghiệm nghề nghiệp tương lai của bạn</h2>
+      <form>
+        <h3>1. Hai từ nào dưới đây miêu tả đúng nhất về bạn?</h3>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="0"> A. Sáng tạo</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="1"> B. Thẳng thắn</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="2"> C. Thực tế</label>
+        </div>
+      </form>
+      <form>
+        <h3>2. Môn học ưa thích của bạn ở trường, kèm theo những gì bạn thấy thích thú nhất khi đến trường</h3>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="0"> A. Nghệ thuật – bạn yêu thích và hết mình khi làm nghệ thuật.</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="1"> B. Lịch sử – nghiên cứu về quá khứ làm cho bạn cảm thấy thích thú.</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="2"> C. Toán học – môn logic học thật đơn giản đối với bạn.</label>
+        </div>
+      </form>
+      <form>
+        <h3>3. Sau khi bạn tốt nghiệp bạn dự định sẽ…</h3>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="0"> A. Học đại học và lấy một tấm bằng – bạn luôn muốn được học đại học.</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="1"> B. Dành thời gian để đi du lịch, sau đó tìm một công việc – bạn không thể chịu được ý nghĩ sẽ tiếp tục học.</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="2"> C. Học ở một trường cao đẳng tư – có chất lượng ngang bằng đại học, và loại trừ được những áp lực gây stress.</label>
+        </div>
+      </form>
+      <form>
+        <h3>4. Những cố vấn nghề nghiệp ở trường bạn muốn nói chuyện với bạn về những dự định của bạn trong tương lai. Bạn phản ứng như thế nào?</h3>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="0"> A. Cảm thấy ngạc nhiên rằng cô ấy thậm chí còn biết cả tên của bạn – bạn còn không biết là trường mình có người cố vấn nghề nghiệp</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="1"> B. Lên một cuộc hẹn khẩn cấp để bạn có thể gặp cô ấy ngay lập tức, mang theo bản dự định của bạn cho 5 năm tới.</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="2"> C. Đặt một cuộc hẹn trong một vài tuần tới – bạn muốn có một lời khuyên tốt nhất về việc làm thế nào để có công việc bạn mong muốn ( dù lúc này bạn chưa biết rằng bạn muốn làm việc
+            gì)</label>
+        </div>
+      </form>
+      <form>
+        <h3>5. Bạn có biết thể loại công việc mà bạn thích làm?</h3>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="0"> A. Không thật sự biết – bạn muốn làm rất nhiều thứ, nhưng bạn vẫn chưa vạch ra một kế hoạch nào cả (bạn muốn sự lựa chọn của mình rộng mở, bạn có thể thay đổi suy nghĩ của mình)</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="1"> B. Có – bạn muốn làm những gì mình luôn mơ ước và sẽ rất thất vọng nếu không làm được điều đó</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="2"> C. Một việc làm tử tế – bạn nghĩ rằng bạn sẽ vui lòng làm, và bạn chỉ quan tâm nó sẽ đem lại cho bạn điều gì</label>
+        </div>
+      </form>
+      <form>
+        <h3>6. Có một công việc – điều đó có quan trọng với bạn không?</h3>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="0"> A. Đó không phải là vấn đề lớn – công việc không phải là tất cả. Bạn muốn có những mối quan hệ rộng và một cuộc sống hạnh phúc</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="1"> B. Khá quan trọng – bạn sẽ làm việc ít nhất 30 năm tới và bạn muốn làm công việc mà mình yêu thích.</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="2"> C. Rất quan trọng – bạn muốn mọi thứ tốt nhất kể cả công việc, một công việc đem lại cho bạn rất nhiều tiền</label>
+        </div>
+      </form>
+      <form>
+        <h3>7. Khi chọn những môn học cho năm tới, điều gì sẽ giúp bạn quyết định?</h3>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="0"> A. Bạn chỉ chọn những môn học sẽ giúp bạn chuẩn bị cho đại học và công việc trong tương lai – không cần biết là bạn có thích hay không, tất cả các môn khác đều là phung phí thời
+            gian.</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="1"> B. Bạn chỉ chọn những môn học bạn thích – trường học đã quá nhàm chán với những lớp học riêng lẻ. Vả lại, bạn có vẻ luôn học tốt những môn mình thích.</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="2"> C. bạn sẽ chọn những lớp bạn thích và những môn học mà bạn giỏi – lớp học sẽ vui như hội nếu có những người bạn hợp cạ.</label>
+        </div>
+      </form>
+      <form>
+        <h3>8. Nếu bạn có thể hoàn thành tốt mọi thứ thì công việc mơ ước của bạn sẽ là gì?</h3>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="0"> A. Luật sư – bạn không thể có đủ kiến thức về luật pháp qua truyền hình, vì vậy bạn chắc rằng bạn yêu thích không khí trong một phòng tiếp kiến.</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="1"> B. Giáo viên – bạn thích công việc giám sát sau giờ mà bạn làm năm vừa rồi, và đó là một dấu hiệu tốt.</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="optradio" value="2"> C. Thời trang – bạn tôn thờ thời trang, và đã từng học may.</label>
+        </div>
+      </form>
+      <div class="text-center">
+        <button type="button" name="button" class="btn btn-lg btn-primary">Nộp bài</button>
+      </div>
+    </div>
+    <p class="6"><strong>Từ 6 đến 13 điểm: Sáng tạo</strong><br>Bạn thực sự có tài năng về nghệ thuật, điều này sẽ được phát huy hơn trong những công việc có tính sáng tạo như thiết kế, quảng cáo, văn học, nhiếp ảnh hay thời trang. Những công việc
+      mang
+      tính công nghiệp sẽ làm cho bạn cảm thấy nhàm chán và không được hoàn thành vì chúng không thể phát huy tính sáng tạo của bạn. Hãy để mắt tới lĩnh vực thiết kế web hay ngành báo chí tìm những khóa học thích hợp đối với bạn, giúp bạn có được
+      công
+      việc yêu thích của mình. Mặc dù bạn sẽ cần một trình độ nhất định, nhưng rất nhiều công việc sáng tạo phụ thuộc nhiều vào kinh nghiệm hơn là mảnh bằng, vì vậy hãy xin lời khuyên từ những người cùng ngành.</p>
+    <p class="14"><strong>Từ 14 đến 19 điểm: Kinh doanh</strong><br>Bạn có năng lực lãnh đạo, tổ chức, thực tế và phù hợp với công việc ở công sơ. Kinh doanh, luật và tài chính là lĩnh vực của bạn, bởi vì bạn đủ thông minh và nhạy cảm để đảm nhận
+      những
+      công việc đó. Hãy hỏi người cố vấn về khóa học thích hợp với bạn, và liên hệ với một số công ty về những công việc họ có sẵn. Và nếu đó là công việc bạn yêu thích thì cơ hội sẽ đến với bạn bếu bạn có một tấm bằng tốt.</p>
+    <p class="20"><strong>Từ 20 đến 24 điểm: Giáo dục</strong>Bạn có những giác quan thông thường, bạn thực tế và có một tâm hồn đẹp, giáo viên, bác sỹ, hoạt động xã hội giúp đỡ những người khác là những lĩnh vực thích hợp với bạn. Bạn luôn giúp đỡ
+      bạn
+      bè của mình khi họ gặp khó khăn, đó là một dấu hiệu tốt. Người cố vấn nghề nghiệp ở trường có thể cho bạn nhiều thông tin giúp bạn có thể tìm được công việc bạn yêu thích</p>
+
+
+  </div>
+</body>
+<%- include("partials/footer") -%>
+</html>

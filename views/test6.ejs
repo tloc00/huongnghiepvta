@@ -1,0 +1,383 @@
+<%- include("partials/header") -%>
+  <script>
+    var sum = [0, 0, 0, 0, 0, 0, 0, 0];
+    var character = ["E", "I", "S", "N", "T", "F", "J", "P"];
+    var count = 0;
+    $(document).ready(function() {
+      $("footer").css("margin-top", "5%");
+      $(".info").hide();
+      $(".btn").click(function() {
+        $("footer").css("margin-top", "50%");
+        $(".questions").hide();
+        $("input").each(function(i) {
+          if ($(this).is(":checked"))
+            sum[$(this).val()]++;
+        });
+        var max = sum[0];
+        var index = 0;
+        for (let i = 1; i < 6; i++)
+          if (max < sum[i]) {
+            max = sum[i];
+            index = i;
+          }
+        var result = "";
+        for (let i = 0; i < 8; i += 2)
+          if (sum[i] > sum[i + 1])
+            result += character[i];
+          else
+            result += character[i + 1];
+        $("." + result).show();
+      });
+    });
+  </script>
+</head>
+
+<body>
+  <%- include("partials/navbar") -%>
+  <div class="content">
+    <div class="questions">
+      <h3 class="phase">Trắc nghiệm MBTI (bài trắc nghiệm do hai mẹ con nhà Briggs (người Mỹ) phát triển nhằm tìm hiểu tâm lý, và nhận biết cách con người tương tác, cảm nhận thế giới xung quanh, hay đưa ra quyết định cho một vấn đề nào đó) Bài trắc nghiệm này sử dụng những câu hỏi nhằm kiểm tra tâm lí, tính cách của một người trên cơ sở đáp án mà người đó chọn đối với vấn đề được đặt ra. Trắc nghiệm tính cách MBTI đặc biệt nhấn mạnh vào sự khác biệt về mặt tự nhiên của từng người dựa trên tứng câu trả lời của họ cho các câu hỏi để suy ra những cá tính, tính cách riêng biệt của từng người.
+  https://hayhochoi.vn/trac-nghiem-mbti-trac-nghiem-tinh-cach-de-chon-nganh-hoc-phu-hop.html
+      </h3>
+    <p class="phase">Giờ chúng ta hãy bắt đầu với bài trắc nghiệm MBTI, các bạn hãy đọc kỹ các phát biểu, phát biểu nào Đúng đánh dấu x vào cột trả lời bên trái, phát biểu nào Sai đánh dấu x vào cột bên phải. Sau đó cộng điểm số của tất cả câu trả lời lại, tính cách nào nhiều điểm hơn thì điền chữ cái đại diện ở cuối bảng.</p>
+      <table class="table table-bordered">
+        <tbody>
+          <tr class="d-flex center">
+            <th class="col-8"></th>
+            <th class="col-2">E (Đúng)</th>
+            <th class="col-2">I (Sai)</th>
+          </tr>
+          <tr class="d-flex">
+            <form>
+              <td class="col-8">1.Trong một buổi gặp mặt có nhiều người, bạn thường mạnh dạn nói chuyện với những người xa lạ</td>
+              <td class="col-2"><input type="radio" name="optradio" value="0"></td>
+              <td class="col-2"><input type="radio" name="optradio" value="1"></td>
+            </form>
+          </tr>
+          <tr class="d-flex">
+            <form>
+              <td class="col-8">2.Bạn thường làm trước sau đó mới suy nghĩ lại về hành động của mình</td>
+              <td class="col-2"><input type="radio" name="optradio" value="0"></td>
+              <td class="col-2"><input type="radio" name="optradio" value="1"></td>
+            </form>
+          </tr>
+          <tr class="d-flex">
+            <form>
+              <td class="col-8">3.Bạn thích mình là tâm điểm của công chúng hơn là ngồi âm thầm đằng sau hậu trường</td>
+              <td class="col-2"><input type="radio" name="optradio" value="0"></td>
+              <td class="col-2"><input type="radio" name="optradio" value="1"></td>
+            </form>
+          </tr>
+          <tr class="d-flex">
+            <form>
+              <td class="col-8">4.Bạn thích làm việc trong môi trường đông vui nhiều hơn là ngồi làm việc độc lập một mình</td>
+              <td class="col-2"><input type="radio" name="optradio" value="0"></td>
+              <td class="col-2"><input type="radio" name="optradio" value="1"></td>
+            </form>
+          </tr>
+          <tr class="d-flex">
+            <form>
+              <td class="col-8">5.Bạn cảm thấy buồn chán khi ở một mình	</td>
+              <td class="col-2"><input type="radio" name="optradio" value="0"></td>
+              <td class="col-2"><input type="radio" name="optradio" value="1"></td>
+            </form>
+          </tr>
+        </tbody>
+      </table>
+      <table class="table table-bordered">
+        <tbody>
+          <tr class="d-flex center">
+            <th class="col-8"></th>
+            <th class="col-2">T (Đúng)</th>
+            <th class="col-2">F (Sai)</th>
+          </tr>
+          <tr class="d-flex">
+            <form>
+              <td class="col-8">1.Khi ra quyết định, bạn suy nghĩ kỹ càng theo các nguyên tắc logic và dựa trên các dữ kiện chứ ít khi quan tâm tới cảm xúc của mọi người xung quanh	</td>
+              <td class="col-2"><input type="radio" name="optradio" value="4"></td>
+              <td class="col-2"><input type="radio" name="optradio" value="5"></td>
+            </form>
+          </tr>
+          <tr class="d-flex">
+            <form>
+              <td class="col-8">2.Mọi người thường nhìn nhận bạn như một người khách quan công bằng</td>
+              <td class="col-2"><input type="radio" name="optradio" value="4"></td>
+              <td class="col-2"><input type="radio" name="optradio" value="5"></td>
+            </form>
+          </tr>
+          <tr class="d-flex">
+            <form>
+              <td class="col-8">3.Khi cho rằng cái gì đó là sự thật, bạn sẽ nói thẳng ra mà không quan tâm nhiều đến việc hành động đó có thể ảnh hưởng đến mối quan hệ giữa bạn và những người khác	  </td>
+              <td class="col-2"><input type="radio" name="optradio" value="4"></td>
+              <td class="col-2"><input type="radio" name="optradio" value="5"></td>
+            </form>
+          </tr>
+          <tr class="d-flex">
+            <form>
+              <td class="col-8">4.Bạn yêu thích thảo luận và tranh luận về các chủ đề dù đôi khi những tranh luận này có thể trở lên gay gắt</td>
+              <td class="col-2"><input type="radio" name="optradio" value="4"></td>
+              <td class="col-2"><input type="radio" name="optradio" value="5"></td>
+            </form>
+          </tr>
+          <tr class="d-flex">
+            <form>
+              <td class="col-8">5.Mọi người nghĩ rằng bạn là người khép kín	</td>
+              <td class="col-2"><input type="radio" name="optradio" value="4"></td>
+              <td class="col-2"><input type="radio" name="optradio" value="5"></td>
+            </form>
+          </tr>
+        </tbody>
+      </table>
+      <table class="table table-bordered">
+        <tbody>
+          <tr class="d-flex center">
+            <th class="col-8"></th>
+            <th class="col-2">S (Đúng)</th>
+            <th class="col-2">N (Sai)</th>
+          </tr>
+          <tr class="d-flex">
+            <form>
+              <td class="col-8">1.Bạn thích để ý và ghi nhớ nhiều thông tin chi tiết từ các sự kiện bên ngoài</td>
+              <td class="col-2"><input type="radio" name="optradio" value="2"></td>
+              <td class="col-2"><input type="radio" name="optradio" value="3"></td>
+            </form>
+          </tr>
+          <tr class="d-flex">
+            <form>
+              <td class="col-8">2.Bạn không nghĩ tới tương lai chỉ tập trung chính vào việc tận hưởng hiện tại</td>
+              <td class="col-2"><input type="radio" name="optradio" value="2"></td>
+              <td class="col-2"><input type="radio" name="optradio" value="3"></td>
+            </form>
+          </tr>
+          <tr class="d-flex">
+            <form>
+              <td class="col-8">3.Bạn thích những giải pháp cụ thể và thực tế cho các vấn đề hơn là những giải pháp sáng tạo</td>
+              <td class="col-2"><input type="radio" name="optradio" value="2"></td>
+              <td class="col-2"><input type="radio" name="optradio" value="3"></td>
+            </form>
+          </tr>
+          <tr class="d-flex">
+            <form>
+              <td class="col-8">4.Bạn thích kinh nghiệm và thực tiễn hơn trí tưởng tượng</td>
+              <td class="col-2"><input type="radio" name="optradio" value="2"></td>
+              <td class="col-2"><input type="radio" name="optradio" value="3"></td>
+            </form>
+          </tr>
+          <tr class="d-flex">
+            <form>
+              <td class="col-8">5.Bạn có xu hướng suy nghĩ theo dạng như "nó là cái gì" hơn "nó có thể là cái gì"</td>
+              <td class="col-2"><input type="radio" name="optradio" value="2"></td>
+              <td class="col-2"><input type="radio" name="optradio" value="3"></td>
+            </form>
+          </tr>
+        </tbody>
+      </table>
+      <table class="table table-bordered">
+        <tbody>
+          <tr class="d-flex center">
+            <th class="col-8"></th>
+            <th class="col-2">J (Đúng)</th>
+            <th class="col-2">P (Sai)</th>
+          </tr>
+          <tr class="d-flex">
+            <form>
+              <td class="col-8">1.Bạn luôn lên kế hoạch rõ ràng cho mọi thứ</td>
+              <td class="col-2"><input type="radio" name="optradio" value="6"></td>
+              <td class="col-2"><input type="radio" name="optradio" value="7"></td>
+            </form>
+          </tr>
+          <tr class="d-flex">
+            <form>
+              <td class="col-8">2.Bạn tôn trọng và luôn cố gắng đúng giờ trong các cuộc hẹn</td>
+              <td class="col-2"><input type="radio" name="optradio" value="6"></td>
+              <td class="col-2"><input type="radio" name="optradio" value="7"></td>
+            </form>
+          </tr>
+          <tr class="d-flex">
+            <form>
+              <td class="col-8">3.Bạn có danh sách cụ thể những việc cần làm</td>
+              <td class="col-2"><input type="radio" name="optradio" value="6"></td>
+              <td class="col-2"><input type="radio" name="optradio" value="7"></td>
+            </form>
+          </tr>
+          <tr class="d-flex">
+            <form>
+              <td class="col-8">4.Bạn không thích những gì mang tính ngẫu hứng</td>
+              <td class="col-2"><input type="radio" name="optradio" value="6"></td>
+              <td class="col-2"><input type="radio" name="optradio" value="7"></td>
+            </form>
+          </tr>
+          <tr class="d-flex">
+            <form>
+              <td class="col-8">5.Bạn có xu hướng chốt vấn đề và ra quyết định chứ không để mở các lựa chọn</td>
+              <td class="col-2"><input type="radio" name="optradio" value="6"></td>
+              <td class="col-2"><input type="radio" name="optradio" value="7"></td>
+            </form>
+          </tr>
+        </tbody>
+      </table>
+      <div class="text-center">
+        <button type="button" name="button" class="btn btn-lg btn-primary">Nộp bài</button>
+      </div>
+    </div>
+    <div class="ISFJ info">
+      <h3>Kết quả là ISFJ:</h3>
+      <p>I - Hướng nội: Người hướng nội tập trung vào những ý tưởng và trạng thái nội tâm<br>
+        S - Thụ cảm: Người thụ cảm có xu hướng thu nhận thông tin bằng các giác quan và tập trung cho hiện tại<br>
+        F - Cảm giác: Người có xu hướng ra quyết định dựa trên cảm giác chủ quan<br>
+        J - Đánh giá: Người yêu thích các kế hoạch và muốn mọi chuyện được sắp đặt ổn thoả<br>
+        ISFJ là mẫu người trầm lặng, có trách nhiệm và rất quan tâm đến cảm xúc của người xung quanh. Mẫu người này trông có vẻ rất khép kín và lạnh lùng nhưng khi đã quen rồi thì họ rất quan tâm và trung thành với bạn.<br>
+        Bên cạnh đó, ISFJ còn là người nhạy cảm, chu đáo và tôn trọng người khác, mẫu người này có xu hướng tránh né xung đột vì chúng khiến họ không thoải mái.<br>
+        ISFJ làm việc rất nghiêm túc và tuân thủ chặt chẽ những quy tắc trong công việc, thường chú ý tới những thông tin mang tính chi tiết và cẩn thận với tiền bạc. <br>
+        ISFJ yêu thích làm việc, hợp tác cùng mọi người, là người có kỹ năng làm việc với con người rất tốt do quan tâm đến cảm xúc của con người.<br>
+        ISFJ sẽ phù hợp với những nghề nghiệp tiếp xúc với người nhiều như các ngành dịch vụ hay ngành mang tính nghệ thuật.<br>
+        Những nghề phù hợp với ISFJ là: Kiểm toán - Kế toán; Diễn viên;Thiết kế thời trang; Kinh tế; Biên tập viên; Điều dưỡng; Nhân viên hoạt động xã hội; Huấn luyện viên; Nhà văn; Nhà tâm lý học; Quản lý nhân sự; Dinh dưỡng; Nha sĩ; Quản lý giáo dục;
+        Giáo viên; Quản lý nhà hàng - khách sạn<br>
+      </p>
+    </div>
+    <div class="ISTJ info">
+      <h3>Kết quả là ISTJ:</h3>
+      <p>I - Hướng nội: Người hướng nội tập trung vào những ý tưởng và trạng thái nội tâm<br>
+        S - Thụ cảm: Người thụ cảm có xu hướng thu nhận thông tin bằng các giác quan và tập trung cho hiện tại<br>
+        T - Suy nghĩ: Người có xu hướng ra quyết định dựa trên logic và những phân tích khách quan<br>
+        J - Đánh giá: Người yêu thích các kế hoạch và muốn mọi chuyện được sắp đặt ổn thoả<br>
+        ISTJ là người độc lập, khép kín và có trách nhiệm, ít khi nói trước khi nghĩ, cần nhiều thời gian để ai đó làm quen. Là mẫu người thích nghiên cứu, tìm hiểu sâu về vấn đề và tham gia các hoạt động thể chất. <br>
+        ISTJ giỏi trong việc thu thập dữ liệu, cẩn thận với tiền bạc, không thích ý tưởng hay phương pháp mới trừ khi có minh chứng vững chắc tính hữu ích của ý tưởng. Là mẫu người logic, gọn gàng ngăn nắp, có khả năng giữ bình tĩnh tốt, là người có
+        trách nhiệm và tỏ ra tin cậy trong công việc. <br>
+        ISTJ làm tốt các công việc đòi hỏi tập trung cao độ, khả năng xử lý dữ kiện bằng tư duy logic, là người thích trầm lặng yêu thích cuộc sống thanh bình và không gian riêng. Mẫu người này thích hợp với các công việc thiên về kỹ thuật hơn. <br>
+        Những nghề nghiệp phù hợp với ISTJ là :Kế toán - kiểm toán; Quản trị kinh doanh; Cảnh sát - công an; Giáo viên thực hành; Điện - Điện tử; Bác sĩ; Nha sĩ; Công nghệ thông tin; Luật; Tài chính; Cơ khí; Nghiên cứu khoa học<br>
+      </p>
+    </div>
+    <div class="INFJ info">
+      <h3>Kết quả là INFJ:</h3>
+      <p>I - Hướng nội: Người hướng nội tập trung vào những ý tưởng và trạng thái nội tâm<br>
+        N - Trực giác: Người có xu hướng thu nhận thông tin từ nhiều mô hình, có cái nhìn tổng thể và hướng đến tương lai<br>
+        F - Cảm giác: Người có xu hướng ra quyết định dựa trên cảm giác chủ quan<br>
+        J - Đánh giá: Người yêu thích các kế hoạch và muốn mọi chuyện được sắp đặt ổn thoả<br>
+        INFJ là mẫu người nhiều kiến thức, sáng tạo nhiều đam mê và nhạy cảm, được nhìn nhận là người biết quan tâm và giỏi cư xử nên rất được lòng mọi người. <br>
+        Là người hướng nội thiên về trực giác, INFJ xử lý thông tin tốt và giỏi trong việc nhận ra những mô hình và ý nghĩa ẩn chứa bên dưới các thông tin. <br>
+        INFJ thường là những người bạn tốt và cũng mong muốn có những tình bạn tốt, INFJ thường dành nhiều thời gian quan tâm bạn bè, là người tin cậy để cho bạn bè những lời khuyên. <br>
+        INFJ thường phù hợp với xu hướng trở thành nhà lãnh đạo chứ không phải nhân viên, phong cách lãnh đạo theo lối thuyết phục tạo cảm hứng cho những người xung quanh. <br>
+        Những nghề nghiệp phù hợp với INFJ:Nhà hoạt động tôn giáo; Giáo viên; Nhà tâm lý học; Quản trị nhân sự; Huấn luyện viên; Nhà văn nhà thơ; Nhà kinh doanh; Chuyên viên tư vấn; Nhiếp ảnh gia; Nhạc sĩ nghệ sĩ; Kiến trúc sư; Biên tập viên; Luật; Nhà
+        nghiên cứu<br>
+      </p>
+    </div>
+    <div class="INTJ info">
+      <h3>Kết quả là INTJ:</h3>
+      <p>I - Hướng nội: Người hướng nội tập trung vào những ý tưởng và trạng thái nội tâm<br>
+        N - Trực giác: Người có xu hướng thu nhận thông tin từ nhiều mô hình, có cái nhìn tổng thể và hướng đến tương lai<br>
+        T - Suy nghĩ: Người có xu hướng ra quyết định dựa trên logic và những phân tích khách quan<br>
+        J - Đánh giá: Người yêu thích các kế hoạch và muốn mọi chuyện được sắp đặt ổn thoả<br>
+        Là mẫu người sống nội tâm, yêu thích kiến thức sáng tạo, luôn muốn mọi thứ hoàn hảo, cải thiện hiện tại dựa trên những khả năng và cơ hội mới. <br>
+        Mẫu người này thích thú với việc nghiêm cứu những hệ thống, lý thuyết, mô hình và sử dụng chúng để đưa ra chiến lược. <br>
+        Do có đặc tính hướng nội nên họ không thường xuyên chia sẻ thông tin và kiến thức của mình với người lạ<br>
+        Những nghề nghiệp phù hợp cho INTJ: Nhà khoa học; Giảng viên; Chuyên viên chiến lược; Quản trị doanh nghiệp; Luật sư; Nha khoa - bác sĩ; Nhà tâm lý học; Kỹ sư công nghệ thông tin; Kỹ sư thiết kế; Nhà nghiên cứu<br>
+      </p>
+    </div>
+    <div class="ISTP info">
+      <h3>Kết quả là ISTP</h3>
+      <p>ISTP là người có nhiều kỹ năng, giỏi tư duy logic, trầm lặng và tinh ý, dễ dàng quan sát thấy nhiều thứ nhưng ít chia sẻ thành quả này với ai. <br>
+        Đây là mẫu người bình tĩnh ngay cả những lúc khó khăn nhất, thường âm thầm tìm kiếm thông tin và xử lý bằng tư duy logic. <br>
+        ISTP là người cực kỳ logic và tỏ ra công tâm nên bị nhìn nhận nhưng người lạnh lùng không quan tâm tới cảm xúc của người khác. <br>
+        ISTP không thích các quy tắc cấu trúc hay hệ thống, thích khám phá cái mới theo đuổi cách sống đầy ngẫu hứng của mình hơn. <br>
+        Những nghề nghiệp phù hợp với ISTP: Huấn luyện viên thể thao; Lập trình viên; Kỹ sư điện; Nhà kinh doanh; Nhà khoa học; Đại diện bán hàng; Phi công; Cảnh sát cứu hỏa; Marketing; Nhiếp ảnh; Thư ký; Đầu bếp (nhà hàng - khách sạn) <br>
+      </p>
+    </div>
+    <div class="ISFP info">
+      <h3>Kết quả là ISFP</h3>
+      <p>ISFP là mẫu người tinh ý, chu đáo và tử tế, có thể trông lạnh lùng nhưng thực tế họ chứa nhiều cảm nhận sâu sắc. <br>
+        ISFP giỏi trong việc nhận biết cảm xúc của người khác, giỏi lắng nghe, thích giúp đỡ mọi người một cách âm thầm. <br>
+
+        Đây là mẫu người có khiếu về nghệ thuật, cần sự nghiệp phù hợp với giá trị bên trong của mình hơn một công việc. <br>
+        Những nghề phù hợp với ISFP:Nghệ sĩ; Nhạc sĩ; Họa sĩ; Giáo viên; Nhà tâm lý; Bác sĩ nhi khoa; Nhân viên hoạt động xã hội; Chuyên viên thẩm mỹ; Đầu bếp; Biên tập viên<br>
+      </p>
+    </div>
+    <div class="INFP info">
+      <h3>Kết quả là INFP</h3>
+      <p>Làm mẫu người đặc biệt và rất hiếm, INFP có vẻ khép kín và trầm lặng, chỉ chia sẻ nhiều với những người quen là người bạn trung thành và tận tâm. <br>
+        INFP coi trọng giá trị bản thân, sẽ không có chuyện đàm phán một khi các khả năng đi ngược lại với giá trị của bản thân. <br>
+        Đây là mẫu người tích cực sáng tạo hướng tới tương lai và luôn tìm kiếm cơ hội mới, quan tâm đến việc giúp người khác phát triển bản thân. <br>
+        INFP là người trực giác nhạy bén trong việc tìm ra những cơ hội mới, cần một sự nghiệp hơn là một công việc. <br>
+        Những nghề nghiệp phù hợp cho INFP: Nhà văn; Nhà hoạt động xã hội; Nhà tâm lý học; Nhạc sĩ; Giáo viên; Nhiếp ảnh gia; Biên tập viên; Nhà báo; Nhà nghiên cứu; Nhà sản xuất phim; Nhà thiết kế; Doanh nhân<br>
+      </p>
+    </div>
+    <div class="INTP info">
+      <h3>Kết quả là INTP</h3>
+      <p>INTP là người độc lập và sáng tạo, cần nhiều thời gian để suy nghĩ về chủ đề mà mình quan tâm. <br>
+        INTP có khả năng đặc biệt trong việc phân tích phát triển các lý thuyết và mô hình, là người có nhiều kiến thức và tư duy sáng tạo. <br>
+        Là người hướng tới tương lai rất cởi mở trước những cơ hội và khả năng mới, thích giải quyết vấn đề bằng logic và phân tích. <br>
+        INTP là người có khả năng làm việc độc lập, không thích lối mòn và ràng buộc khuôn khổ, rất nhiều nhà khoa học trên thế giới mang đặc tính của INTP. <br>
+        Nghề nghiệp phù hợp với INTP: Nhà khoa học; Nhiếp ảnh gia; Kỹ sư; Nhà toán học; Sử gia; Nhà sáng chế; Triết gia; Chuyên gia kế hoạch chiến lược; Lập trình viên; Nhà kinh tế; Thẩm phán; Nhà nghiên cứu<br>
+      </p>
+    </div>
+    <div class="ESTP info">
+      <h3>Kết quả là ESTP</h3>
+      <p>Là mẫu người có tính cách mạo hiểm, cởi mở, thân thiện và logic, hướng ngoại, có phong cách khá cuốn hút trong giao tiếp nên có nhiều bạn bè. <br>
+        ESTP thích công việc mắt thấy tai nghe hơn là công việc mang tính trừu tượng, có khả năng quan sát tốt có thể nhận ra những chi tiết mà người khác không thấy được. <br>
+        Là người sống vô tư, ít lo lắng, giỏi trong tư duy logic, thích cạnh tranh trong công việc, đưa ra quyết định và hành động rất nhanh. <br>
+        ESTP là người không thích những quy tắc và thường có xu hướng phản kháng lại người muốn kiểm soát họ. <br>
+        Các nghề nghiệp phù hợp với ESTP: Kiểm toán viên;Diễn viên hài;Chuyên viên Marketing;Kỹ sư;Nhà kinh doanh;Cảnh sát;Phi công;Nhân viên an ninh;Phóng viên<br>
+      </p>
+    </div>
+    <div class="ESFP info">
+      <h3>Kết quả là ESFP</h3>
+      <p>Là người cởi mở, tinh ý và thân thiện, thích tiếp xúc với nhiều người khác nhau để có những trải nghiệm mới trong cuộc sống, là người hay nói vui vẻ và làm mọi người xung quanh thấy vui. <br>
+        ESFP Là người sống trong hiện tại tận hưởng những khoảnh khắc cuộc sống, ít quan tâm nhiều đến tương lai. <br>
+        Đây cũng là người ngẫu hứng không thích các cấu trúc hệ thống cứng nhắc rất yêu thích những gì bất ngờ nên chọn nghề nghiệp có nhiều sự tự do và những cái mới<br>
+        Những nghề nghiệp phù hợp cho ESFP: Nghệ sĩ;Bán hàng;Nhạc sĩ;Nhà thiết kế thời trang;Thiết kế nội thất;Nhiếp ảnh gia;Chuyên viên Marketing;Nhà kinh doanh;Nhà sản xuất phim;Hướng dẫn viên du lịch;Chuyên viên quan hệ công chúng<br>
+      </p>
+    </div>
+    <div class="ENFP info">
+      <h3>Kết quả là ENFP</h3>
+      <p>ENFP là người đa tài có thể đạt được thành công ở bất kỳ lĩnh vực nào miễn là họ yêu thích lĩnh vực đó, là người cởi mở nhiệt tình và ngẫu hứng. <br>
+        ENFP thích giao tiếp và gặp gỡ mọi người, do đó có nhiều mối quan hệ khác nhau ngoài xã hội, rất thích thú với những cái mới và không ngừng đưa ra các ý tưởng mói. <br>
+        Có khả năng giải quyết nhiều vấn đề theo những cách sáng tạo, là người giỏi ăn nói, hài hướng và nhiệu tình nên rất cuốn hút người xung quanh. <br>
+        ENFP nên làm những cong việc mang tính sáng tạo, tiếp xúc với nhiều người và luôn có những điều mới lạ. <br>
+        Những nghề nghiệp phù hợp ENFP: Tư vấn viên;Nhà tâm lý học;Nhà kinh doanh;Diễn viên;Lập trình viên;Nhà khoa học;Nhà báo;Chính trị gia;Kỹ sư;Luật sư;Chuyên viên Quan hệ công chúng PR;Chuyên viên Marketing;Chuyên viên ngân hàng<br>
+      </p>
+    </div>
+    <div class="ENTP info">
+      <h3>Kết quả là ENTP</h3>
+      <p>ENTP là mẫu người cởi mở, tự tin, sáng tạo, logic và ngẫu hứng, mẫu người này rất dễ gần nên có nhiều bạn bè. <br>
+        Là người dí dỏm, thông minh, ENTP có thể xử lý tốt những vẫn đề phức tạp. Là người xem trọng sự chính xác trong ngôn ngữ, lập luận và phân tích. <br>
+        ENTP là người thích cái mới và nắm bắt rất nhanh những lý thuyết hay tư duy mới. ENTP là người giỏi trong nhiều lĩnh vực khác nhau, có thể làm tốt hầu hết công việc nếu họ thấy thích. <br>
+        Những nghề nghiệp phù hợp với ENFP: Diễn viên;Kỹ sư;Nhà kinh doanh;Nhà báo;Thẩm phán;Nhạc sĩ;Chuyên viên Marketing;Nhà văn;Nhà tâm lý học;Chuyên viên tư vấn;Lập trình viên;Đạo diễn nhà sản xuất phim;Chuyên viên quan hệ công chúng PR<br>
+      </p>
+    </div>
+    <div class="ESTJ info">
+      <h3>Kết quả là ESTJ</h3>
+      <p>ESTJ là mẫu người logic, thực tế và quyết đoán, mẫu người này có thể làm rất nhiều công việc khác nhau, tính cách thẳng thắn do đó đôi khi làm người xung quanh không thoải mái. <br>
+        ESTJ giỏi về phân tích, yêu thích việc thu thập dữ kiện thông tin để phân tích, là người đa tài và luôn muốn trở thành lãnh đạo. <br>
+        ESTJ tôn trọng các cấu trúc, hệ thống và mong muốn mọi người cũng phải hành động như thế. <br>
+        Những nghề nghiệp phù hợp với ESTJ:Lãnh đạo quân đội;Cảnh sát;Giám đốc doanh nghiệp;Chuyên viên tài chính;Thẩm phán;Nhà văn;Nhà nghiên cứu;Kỹ sư;Biên tập viên;Kế toán - kiểm toán;Chuyên viên kinh tế;Quản lý dự án, nhà hàng, ... <br>
+      </p>
+    </div>
+    <div class="ESFJ info">
+      <h3>Kết quả là ESFJ </h3>
+      <p>ESFJ là người nhiệt tình, thân thiện và thích giao tiếp, có nhiều bạn bè, luôn đồng cảm và quan tâm tới những người xung quanh. <br>
+        Là người yêu thích sự hòa hợp trong cuộc sống, rất nhanh nhạy trong việc nhận biết nhu cầu của mọi người. <br>
+        ESFJ tôn trọng truyền thống, kinh nghiệm, tuân thủ các cấu trúc quy tắc và yêu thích những khoảnh khắc hiện tại. <br>
+        Những nghề nghiệp phù hợp với ESFJ:Giáo viên;Y tá;Trông trẻ;Nhân viên hành chính;Quản lý nhà hàng - khách sạn;Lễ tân;Kế toán;Quản trị nhân sự;Huấn luyện viên thể dục thẩm mỹ;Kinh doanh cửa hàng<br>
+      </p>
+    </div>
+    <div class="ENFJ info">
+      <h3>Kết quả là ENFJ</h3>
+      <p>ENFJ là mẫu người cởi mở, nhiệt tình và thích giao tiếp, dễ dàng kết bạn với người khác và được nhiều người biết đến. <br>
+        ENFJ giỏi trong việc nhận biết cảm xúc của người khác, luôn tìm sự hòa hợp không thích đối kháng. <br>
+        Là người sáng tạo và giàu tưởng tượng, có tài năng nghệ thuật, thích thử thách trong công việc. <br>
+        Những nghề nghiệp phù hợp với ENFJ: Tư vấn viên;Nhà tâm lý học;Nhà hoạt động xã hội;Quản trị nhân sự;Nhà văn;Chính trị gia;Giám đốc;Giáo viên;Kế toán - kiểm toán;Diễn viên;Kỹ sư;Nhà thiết kế;Chuyên viên quan hệ công chúng PR<br>
+      </p>
+    </div>
+    <div class="ENTJ info">
+      <h3>Kết quả là ENTJ</h3>
+      <p>ENTJ là một nhà lãnh đạo bẩm sinh, giỏi logic, quyết đoán, tự tin, giàu nhiệt huyết và có đầu óc tổ chức. <br>
+        Là người thích giao tiếp nên có nhiều bạn bè, mẫu người sáng tạo có nhiều ý tưởng mới và hướng tới tương lai. <br>
+        Là người giỏi tư duy logic, rất giỏi tìm ra lỗi lập luận hay chỗ chưa hiệu quả trong cách thức làm việc. ENTJ ưu thích những cấu trúc và hướng đến kết quả, luôn mong muốn trở thành lãnh đạo và ít khi cam chịu phục tùng người khác. <br>
+        Những nghề nghiệp phù hợp với ENTJ:Giám đốc doanh nghiệp;Giảng viên đại học;Thẩm phán;Nhà kinh doanh;Nhà khoa học;Luật sư;Nhân viên ngân hàng;Chính trị gia<br>
+      </p>
+    </div>
+  </div>
+
+</body>
+<%- include("partials/footer") -%>
+</html>
